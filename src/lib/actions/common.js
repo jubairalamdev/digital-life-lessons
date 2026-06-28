@@ -1,5 +1,7 @@
 "use server"
 
+import { revalidatePath } from 'next/cache';
+
 export const serverFetch = async (apiUrl) => {
     try {
         const res = await fetch(apiUrl)
@@ -49,7 +51,7 @@ export const getLessonById = async (lessonId) => {
 }
 
 
-export const serverMutation = async (apiUrl, clientData, options = 'POST') => {
+export const serverMutation = async (apiUrl, clientData, options = 'POST', revalidationPath) => {
     const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000';
 
     // Ensure the apiUrl starts with a leading slash cleanly
@@ -69,11 +71,12 @@ export const serverMutation = async (apiUrl, clientData, options = 'POST') => {
     }
 
     const data = await res.json();
+    if(revalidationPath){
+        revalidatePath(revalidationPath);
+    }
     // console.log(data);
     return data;
 };
-
-import { revalidatePath } from 'next/cache';
 
 export async function updateDataAndRevalidate(path) {
   revalidatePath(path); 
