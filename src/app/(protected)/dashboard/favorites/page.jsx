@@ -23,7 +23,7 @@ const MyFavoritesPage = async () => {
         const currentUserId = session.user.id;
         const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000';
 
-        const favoriteEntries = await serverFetchById(`/api/favorites`, currentUserId) || [];
+        const favoriteEntries = await serverFetchById(`/api/favorites`, currentUserId, ["favorites"]) || [];
 
         return (
             <div className="w-full max-w-6xl mx-auto space-y-6 select-none p-4 md:p-8 text-zinc-100">

@@ -20,8 +20,8 @@ export default async function DashboardPage() {
     }
 
     const [lessons, favorites] = await Promise.all([
-        serverFetchById("/api/my/allLessons", user.id),
-        serverFetchById("/api/favorites", user.id),
+        serverFetchById("/api/my/allLessons", user.id, ["lessons"]),
+        serverFetchById("/api/favorites", user.id, ["lessons"]),
     ]);
 
     if (user?.role === "user") {

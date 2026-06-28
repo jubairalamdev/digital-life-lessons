@@ -6,7 +6,7 @@ import AllLessonCard from '@/components/allLessons/AllLessonsCard';
 
 const AllLessonsPage = async () => {
 
-    const lessonsData = await serverFetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000'}/api/lessons`);
+    const lessonsData = await serverFetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000'}/api/lessons`, ["lessons"]);
     return (
         <main className="w-full min-h-screen bg-zinc-950 text-zinc-100 py-16 relative overflow-hidden">
             {/* Background Aesthetic Glows */}
