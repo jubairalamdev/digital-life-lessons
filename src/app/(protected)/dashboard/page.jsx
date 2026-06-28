@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { serverFetchById } from "@/lib/actions/common";
 import DashboardContent from "@/components/dashboard/home/DashboardContent";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
     const session = await auth.api.getSession({
