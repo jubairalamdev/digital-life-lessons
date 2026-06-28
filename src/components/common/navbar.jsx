@@ -19,11 +19,16 @@ export default function Navbar() {
   const role = user?.role || "user";
   const isAdmin = role === "admin";
 
-  const dashboardBase = isAdmin ? "/dashboard/admin" : "/dashboard";
+  // Base paths matching the folder structure
+  const dashboardBase = "/dashboard";
+  const adminBase = "/dashboard/admin";
 
+  // Fixed routes structure based on folder layout
   const routes = {
-    profile: `${dashboardBase}/profile`,
-    dashboard: dashboardBase,
+    // If admin, direct to /dashboard/admin, otherwise /dashboard
+    dashboard: isAdmin ? adminBase : dashboardBase,
+    // These folders are directly inside dashboard, regardless of role
+    profile: isAdmin ? `${adminBase}/profile` : `${dashboardBase}/profile`,
     addLesson: `${dashboardBase}/addLessons`,
     myLessons: `${dashboardBase}/myLessons`,
   };
@@ -68,8 +73,12 @@ export default function Navbar() {
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex items-center gap-6 font-medium">
           <li><Link href="/">Home</Link></li>
-          <li><Link href={routes.addLesson}>Add Lesson</Link></li>
-          <li><Link href={routes.myLessons}>My Lessons</Link></li>
+          {user && (
+            <>
+              <li><Link href={routes.addLesson}>Add Lesson</Link></li>
+              <li><Link href={routes.myLessons}>My Lessons</Link></li>
+            </>
+          )}
           <li><Link href="/allLessons">Public Lessons</Link></li>
           <li><Link href="/pricing">Pricing / Upgrade</Link></li>
         </ul>
@@ -90,7 +99,6 @@ export default function Navbar() {
                     alt="avatar"
                     width={50}
                     height={50}
-                    className=""
                   />
                 </div>
                 <p>Welcome, {user?.name?.split(" ")[0]}</p>
@@ -142,28 +150,27 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
           <ul className="flex flex-col gap-2 p-4">
-
             <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-
-            <li><Link href={routes.addLesson} onClick={() => setIsMenuOpen(false)}>Add Lesson</Link></li>
-
-            <li><Link href={routes.myLessons} onClick={() => setIsMenuOpen(false)}>My Lessons</Link></li>
-
+            {user && (
+              <>
+                <li><Link href={routes.addLesson} onClick={() => setIsMenuOpen(false)}>Add Lesson</Link></li>
+                <li><Link href={routes.myLessons} onClick={() => setIsMenuOpen(false)}>My Lessons</Link></li>
+              </>
+            )}
             <li><Link href="/allLessons" onClick={() => setIsMenuOpen(false)}>Public Lessons</Link></li>
-
             <li><Link href="/pricing" onClick={() => setIsMenuOpen(false)}>Pricing / Upgrade</Link></li>
 
-            <li className="mt-4 border-t pt-4">
+            <li className="mt-4 border-t pt-4 flex flex-col gap-2">
               {user ? (
                 <>
                   <div className="flex items-center gap-3 py-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden">
+                    <div className="w-8 h-8 rounded-full overflow-hidden relative">
                       <Image
                         src={user.image || "/images/logo-small.png"}
                         alt="avatar"
                         fill
                         className="object-cover"
-                      />
+                  />
                     </div>
                     <span>{user.name}</span>
                   </div>
@@ -178,15 +185,15 @@ export default function Navbar() {
 
                   <button
                     onClick={handleLogout}
-                    className="text-red-400"
+                    className="text-left text-red-400"
                   >
                     Logout
                   </button>
                 </>
               ) : (
                 <>
-                  <Link href="/auth/login">Login</Link>
-                  <Link href="/auth/register">Sign Up</Link>
+                  <Link href="/auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                  <Link href="/auth/register" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
                 </>
               )}
             </li>
