@@ -25,12 +25,10 @@ export default function Navbar() {
 
   // Fixed routes structure based on folder layout
   const routes = {
-    // If admin, direct to /dashboard/admin, otherwise /dashboard
     dashboard: isAdmin ? adminBase : dashboardBase,
-    // These folders are directly inside dashboard, regardless of role
-    profile: isAdmin ? `${adminBase}/profile` : `${dashboardBase}/profile`,
-    addLesson: `${dashboardBase}/addLessons`,
-    myLessons: `${dashboardBase}/myLessons`,
+    profile: isAdmin ? `${adminBase}/profile` : `${dashboardBase}/myProfile`,
+    addLesson: `/addLessons`,
+    myLessons: `/myLessons`,
   };
 
   const handleLogout = async () => {
