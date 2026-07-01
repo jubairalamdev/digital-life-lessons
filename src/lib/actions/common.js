@@ -42,7 +42,7 @@ export const serverFetchById = async (apiUrl, id, tags = []) => {
 };
 
 export const getUserById = async (userId) => {
-    const res = await serverFetchById(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users`, userId, ["users"]);
+    const res = await serverFetchById(`/api/users`, userId, ["users"]);
     return await res
 }
 

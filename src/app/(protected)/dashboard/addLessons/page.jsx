@@ -57,7 +57,8 @@ export default function AddLessonPage() {
             likes: [],
             isFeatured: false,
             isReviewed: true,
-            creatorId: user.id
+            creatorId: user.id,
+            createdAt: new Date()
         };
 
         try {
