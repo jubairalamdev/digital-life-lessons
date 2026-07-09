@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="YOUR_LIVE_URL" target="_blank">🌐 Live Project Link</a> •
+  <a href="https://digital-life-lessons-flame.vercel.app" target="_blank">🌐 Live Project Link</a> •
   <a href="#-core-features" target="_blank">✨ Core Features</a> •
   <a href="#%EF%B8%8F-technical-toolkit" target="_blank">💻 Technical Toolkit</a> •
   <a href="#-getting-started-locally" target="_blank">🚀 Local Setup</a>
@@ -84,8 +84,8 @@ Built with the **MERN Stack**, **Next.js**, **Better Auth**, and **Stripe**, the
 
 | Resource | Link |
 |----------|------|
-| 🚀 Live Website | YOUR_LIVE_URL |
-| 💻 GitHub Repository | YOUR_GITHUB_REPOSITORY |
+| 🚀 Live Website | https://digital-life-lessons-flame.vercel.app |
+| 💻 GitHub Repository | https://github.com/jubairalamdev/digital-life-lessons/ |
 
 ---
 
