@@ -22,7 +22,7 @@ export const serverFetch = async (apiUrl, tags = []) => {
 
 export const serverFetchById = async (apiUrl, id, tags = []) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}${apiUrl}/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000'}${apiUrl}/${id}`, {
             next: {
                 tags
             }
