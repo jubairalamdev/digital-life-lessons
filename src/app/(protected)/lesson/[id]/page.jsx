@@ -31,7 +31,7 @@ const LessonDetailsPage = async ({ params }) => {
     });
 
     if (!session || !session.user) {
-        return redirect('/login');
+        return redirect('/auth/login');
     }
 
     const user = session.user;
