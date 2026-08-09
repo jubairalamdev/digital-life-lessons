@@ -27,8 +27,8 @@ export default function Navbar() {
   const routes = {
     dashboard: isAdmin ? adminBase : dashboardBase,
     profile: isAdmin ? `${adminBase}/profile` : `${dashboardBase}/myProfile`,
-    addLesson: `/addLessons`,
-    myLessons: `/myLessons`,
+    addLesson: `/dashboard/addLessons`,
+    myLessons: `/dashboard/myLessons`,
   };
 
   const handleLogout = async () => {
