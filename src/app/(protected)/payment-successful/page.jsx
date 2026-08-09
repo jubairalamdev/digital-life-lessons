@@ -5,7 +5,6 @@ import { Button } from '@heroui/react'
 import { CheckCircle2, ArrowRight, Mail } from 'lucide-react'
 import { headers } from 'next/headers'
 import { auth } from '@/lib/auth'
-import { toast } from '@heroui/react'
 import { serverMutation } from '@/lib/actions/common'
 
 export default async function Success({ searchParams }) {
@@ -35,12 +34,7 @@ export default async function Success({ searchParams }) {
     const userPayload = {
         plan: "premium"
     }
-    console.log("User ========>", user, user.id)
-    console.log("payload ========>", userPayload)
-    const result = await serverMutation(`/api/users/upgrade/plan/${user.id}`, userPayload, 'PATCH');
-    if(result.modifiedCount>0){
-        toast.success("Operation completed")
-    }
+    await serverMutation(`/api/users/upgrade/plan/${user.id}`, userPayload, 'PATCH');
     return (
       <div className="min-h-screen bg-black flex items-center justify-center p-4">
         <div className="border border-zinc-800 bg-zinc-950 rounded-3xl p-10 md:p-12 max-w-lg w-full text-center shadow-2xl relative overflow-hidden">
