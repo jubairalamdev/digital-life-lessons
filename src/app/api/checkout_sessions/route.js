@@ -21,7 +21,7 @@ export async function POST() {
       line_items: [
         {
           // Provide the exact Price ID (for example, price_1234) of the product you want to sell
-          price: 'price_1TmBGBRhFPsBQNUVGm1PoNIW',
+          price: process.env.STRIPE_PRICE_ID || 'price_1TmBGBRhFPsBQNUVGm1PoNIW',
           quantity: 1,
         },
       ],
