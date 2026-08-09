@@ -39,7 +39,6 @@ export default function RegisterPage() {
       if(data){
 
         toast.success("Account created successfully!");
-        console.log("Registration payload prepared:", registerData);
       }
 
       // Using React Toastify with explicit dark theme config

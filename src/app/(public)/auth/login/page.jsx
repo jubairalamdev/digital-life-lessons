@@ -37,7 +37,6 @@ export default function LoginPage() {
       if (data) {
         toast.success("Logged in successfully!", { theme: "dark" });
       }
-      console.log("Login payload prepared:", data);
 
     } catch (err) {
       toast.error("Login failed. Please check your credentials.");
