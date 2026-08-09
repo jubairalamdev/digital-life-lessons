@@ -2,6 +2,14 @@
 
 import { revalidatePath, revalidateTag } from 'next/cache';
 
+const RESOURCE_TAGS = {
+    lessons: "lessons",
+    users: "users",
+    comments: "comments",
+    reports: "reports",
+    favorites: "favorites",
+};
+
 export const serverFetch = async (apiUrl, tags = []) => {
     try {
         const res = await fetch(apiUrl, {
@@ -79,8 +87,8 @@ export const serverMutation = async (apiUrl, clientData, options = 'POST') => {
     }
 
     const data = await res.json();
-    ["lessons", "users", "comments", "reports", "favorites"].forEach(t => revalidateTag(t));
-    // console.log(data);
+    const touched = cleanApiUrl.split("/").find((seg) => RESOURCE_TAGS[seg]);
+    if (touched) revalidateTag(RESOURCE_TAGS[touched]);
     return data;
 };
 
