@@ -1,4 +1,4 @@
-const { serverFetch } = require("./common")
+import { serverFetch } from "./common";
 
 export const getAllLessonsByPlan = async(plan)=>{
     if (plan === "Free") {
