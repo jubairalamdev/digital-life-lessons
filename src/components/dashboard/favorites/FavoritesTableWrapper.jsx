@@ -14,15 +14,15 @@ export function FavoritesTableWrapper({ children }) {
     if (!mounted) {
         // Return a stable placeholder frame with matching sizing parameters during the initial pass
         return (
-            <div className="border border-zinc-900 bg-zinc-950 rounded-2xl overflow-hidden shadow-2xl min-h-[200px] animate-pulse" />
+            <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-2xl overflow-hidden shadow-2xl min-h-[200px] animate-pulse" />
         );
     }
 
     return (
-        <div className="border border-zinc-900 bg-zinc-950 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-2xl overflow-hidden shadow-2xl">
             <Table className="bg-transparent border-none">
                 <Table.ScrollContainer>
-                    <Table.Content aria-label="User's Saved Lessons List" className="min-w-[700px] bg-zinc-950/20 backdrop-blur-md">
+                    <Table.Content aria-label="User's Saved Lessons List" className="min-w-[700px] bg-white dark:bg-zinc-950/20 backdrop-blur-md">
                         {children}
                     </Table.Content>
                 </Table.ScrollContainer>

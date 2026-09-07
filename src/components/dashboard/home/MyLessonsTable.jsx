@@ -21,25 +21,25 @@ export default function MyLessonsTable({ initialLessons = [] }) {
                         <Table.Column
                             isRowHeader
                             textValue="Lesson Info"
-                            className="text-zinc-500 font-bold text-xs uppercase tracking-wider"
+                            className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider"
                         >
                             Lesson Information
                         </Table.Column>
                         <Table.Column
                             textValue="Category"
-                            className="text-zinc-500 font-bold text-xs uppercase tracking-wider"
+                            className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider"
                         >
                             Category
                         </Table.Column>
                         <Table.Column
                             textValue="Visibility"
-                            className="text-zinc-500 font-bold text-xs uppercase tracking-wider"
+                            className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider"
                         >
                             Visibility
                         </Table.Column>
                         <Table.Column
                             textValue="Created Date"
-                            className="text-zinc-500 font-bold text-xs uppercase tracking-wider text-right"
+                            className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider text-right"
                         >
                             Created Date
                         </Table.Column>

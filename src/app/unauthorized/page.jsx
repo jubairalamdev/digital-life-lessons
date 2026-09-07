@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function UnauthorizedPage() {
     return (
-        <main className="w-full min-h-screen bg-black text-zinc-100 flex items-center justify-center px-4 relative overflow-hidden">
+        <main className="w-full min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 flex items-center justify-center px-4 relative overflow-hidden">
             {/* Ambient Background Aesthetic Elements */}
             <div className="absolute top-[-20%] right-[10%] w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[160px] pointer-events-none" />
             <div className="absolute bottom-[-10%] left-[5%] w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
@@ -30,10 +30,10 @@ export default function UnauthorizedPage() {
 
                 {/* Text Content */}
                 <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">
                         Access Denied
                     </h2>
-                    <p className="text-zinc-500 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+                    <p className="text-zinc-400 dark:text-zinc-500 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
                         You do not have the required permissions to view this page. Please log in with an authorized account or return to the safety of the homepage.
                     </p>
                 </div>
@@ -41,7 +41,7 @@ export default function UnauthorizedPage() {
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
                     <Link href="/" className="w-full sm:w-auto">
-                        <Button className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 rounded-xl h-11 font-semibold text-sm">
+                        <Button className="w-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl h-11 font-semibold text-sm">
                             <ArrowLeft size={16} className="mr-2" />
                             Back to Home
                         </Button>

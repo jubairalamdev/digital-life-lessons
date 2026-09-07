@@ -14,7 +14,7 @@ export default async function DashboardPage() {
     if (!user) {
         return (
             <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-                <p className="text-zinc-500 text-lg">Please sign in to view your dashboard.</p>
+                <p className="text-zinc-400 dark:text-zinc-500 text-lg">Please sign in to view your dashboard.</p>
             </div>
         );
     }

@@ -10,7 +10,7 @@ const HomeFeatured = async () => {
     const displayItems = featuredFreeItems?.slice(0,4) || [];
 
   return (
-    <section className="w-full py-16 bg-zinc-950 relative overflow-hidden">
+    <section className="w-full py-16 bg-white dark:bg-zinc-950 relative overflow-hidden">
       {/* Subtle background glow effect */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2  bg-green-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -18,10 +18,10 @@ const HomeFeatured = async () => {
         
         {/* Uniform Header Section */}
         <div className="mb-10">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
             Featured <span className="text-green-400">Life Lessons</span>
           </h2>
-          <p className="text-zinc-500 text-sm mt-2 font-light">
+          <p className="text-zinc-400 dark:text-zinc-500 text-sm mt-2 font-light">
             Handpicked wisdom and milestone personal growth insights from our global community.
           </p>
         </div>
@@ -32,7 +32,7 @@ const HomeFeatured = async () => {
           displayItems.map((lesson, idx) => (
             <LessonCard key={idx} lesson={lesson} />
           ))):(
-            <p className="text-zinc-500 text-sm font-light col-span-full text-center">
+            <p className="text-zinc-400 dark:text-zinc-500 text-sm font-light col-span-full text-center">
               No featured lessons available at the moment. Please check back later.
             </p>
           )}

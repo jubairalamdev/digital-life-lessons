@@ -34,60 +34,60 @@ export default function ManageUsersContent({ initialUsers }) {
     return (
         <div className="space-y-6 max-w-7xl mx-auto px-4 py-2">
             <div>
-                <h1 className="text-3xl font-black text-white tracking-tight">Manage Users</h1>
-                <p className="text-zinc-400 text-sm mt-1">
+                <h1 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tight">Manage Users</h1>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
                     View all registered users and manage their platform roles.
                 </p>
             </div>
 
-            <div className="border border-zinc-900 bg-zinc-950 rounded-2xl overflow-hidden shadow-xl">
+            <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-2xl overflow-hidden shadow-xl">
                 <Table aria-label="Platform Users" shadow="none" className="bg-transparent">
                     <Table.ScrollContainer>
-                        <Table.Content aria-label="Platform users data" className="min-w-[700px] bg-zinc-950/20">
+                        <Table.Content aria-label="Platform users data" className="min-w-[700px] bg-white dark:bg-zinc-950/20">
                             <Table.Header>
-                                <Table.Column isRowHeader className="text-zinc-500 font-bold text-xs uppercase tracking-wider">
+                                <Table.Column isRowHeader className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider">
                                     User Info
                                 </Table.Column>
-                                <Table.Column className="text-zinc-500 font-bold text-xs uppercase tracking-wider">
+                                <Table.Column className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider">
                                     Email
                                 </Table.Column>
-                                <Table.Column className="text-zinc-500 font-bold text-xs uppercase tracking-wider text-center">
+                                <Table.Column className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider text-center">
                                     Lessons Created
                                 </Table.Column>
-                                <Table.Column className="text-zinc-500 font-bold text-xs uppercase tracking-wider text-center">
+                                <Table.Column className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider text-center">
                                     Current Role
                                 </Table.Column>
-                                <Table.Column className="text-zinc-500 font-bold text-xs uppercase tracking-wider text-right">
+                                <Table.Column className="text-zinc-400 dark:text-zinc-500 font-bold text-xs uppercase tracking-wider text-right">
                                     Actions
                                 </Table.Column>
                             </Table.Header>
 
                             <Table.Body emptyContent="No users found.">
                                 {users.map((user) => (
-                                    <Table.Row key={user._id} className="border-b border-zinc-900/40 hover:bg-zinc-900/20 transition-colors">
+                                    <Table.Row key={user._id} className="border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-900/20 transition-colors">
                                         
                                         {/* User Info Cell */}
                                         <Table.Cell className="py-4 pl-6">
                                             <div className="flex items-center gap-3">
                                                 {user.image ? (
-                                                    <img src={user.image} className="w-8 h-8 rounded-full object-cover border border-zinc-800" alt="" />
+                                                    <img src={user.image} className="w-8 h-8 rounded-full object-cover border border-zinc-200 dark:border-zinc-800" alt="" />
                                                 ) : (
-                                                    <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500">
+                                                    <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-400 dark:text-zinc-500">
                                                         {user.name?.charAt(0)}
                                                     </div>
                                                 )}
-                                                <span className="font-semibold text-white text-sm">{user.name || "Unknown User"}</span>
+                                                <span className="font-semibold text-zinc-900 dark:text-white text-sm">{user.name || "Unknown User"}</span>
                                             </div>
                                         </Table.Cell>
 
                                         {/* Email Cell */}
-                                        <Table.Cell className="py-4 text-sm text-zinc-400">
+                                        <Table.Cell className="py-4 text-sm text-zinc-500 dark:text-zinc-400">
                                             {user.email}
                                         </Table.Cell>
 
                                         {/* Lessons Count Cell */}
                                         <Table.Cell className="py-4 text-center">
-                                            <span className="text-sm font-mono text-zinc-300">{user.totalLessons}</span>
+                                            <span className="text-sm font-mono text-zinc-700 dark:text-zinc-300">{user.totalLessons}</span>
                                         </Table.Cell>
 
                                         {/* Role Cell */}
@@ -95,7 +95,7 @@ export default function ManageUsersContent({ initialUsers }) {
                                             <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase ${
                                                 user?.role === "admin" 
                                                     ? "bg-blue-500/10 text-blue-400 border border-blue-500/20" 
-                                                    : "bg-zinc-900 text-zinc-500 border border-zinc-800"
+                                                    : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800"
                                             }`}>
                                                 {user?.role === "admin" ? <ShieldCheck size={12} /> : <User size={12} />}
                                                 {user?.role || "user"}
@@ -105,13 +105,13 @@ export default function ManageUsersContent({ initialUsers }) {
                                         {/* Actions Cell */}
                                         <Table.Cell className="py-4 pr-6 text-right">
                                             {user?.role === "admin" ? (
-                                                <span className="text-xs text-zinc-600 font-medium">Administrator</span>
+                                                <span className="text-xs text-zinc-400 dark:text-zinc-600 font-medium">Administrator</span>
                                             ) : (
                                                 <Button 
                                                     size="sm" 
                                                     isLoading={updatingId === user._id}
                                                     onClick={() => handleRoleUpdate(user._id, user?.role)}
-                                                    className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 rounded-xl px-3 h-8 text-[11px] font-semibold transition-all"
+                                                    className="bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-xl px-3 h-8 text-[11px] font-semibold transition-all"
                                                 >
                                                     Promote to Admin
                                                 </Button>

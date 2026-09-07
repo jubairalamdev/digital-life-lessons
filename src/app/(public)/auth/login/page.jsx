@@ -56,21 +56,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-zinc-950 flex flex-col justify-center items-center px-4 relative selection:bg-green-500/30 py-20">
+    <div className="min-h-screen w-full bg-white dark:bg-zinc-950 flex flex-col justify-center items-center px-4 relative selection:bg-green-500/30 py-20">
       {/* Toast Notification Container with Dark Theme defaults */}
       <ToastContainer position="top-center" autoClose={4000} theme="dark" />
 
       {/* Decorative Radial Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="w-full max-w-md bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-xl rounded-2xl p-8 shadow-2xl z-10">
+      <div className="w-full max-w-md bg-zinc-100 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-xl rounded-2xl p-8 shadow-2xl z-10">
 
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
             Welcome <span className="text-green-400">Back</span>
           </h1>
-          <p className="text-zinc-500 text-sm mt-2 font-light">
+          <p className="text-zinc-400 dark:text-zinc-500 text-sm mt-2 font-light">
             Sign in to manage and view your life lessons.
           </p>
         </div>
@@ -91,20 +91,20 @@ export default function LoginPage() {
               return null;
             }}
           >
-            <Label className="text-zinc-300 text-sm font-medium">Email Address</Label>
+            <Label className="text-zinc-700 dark:text-zinc-300 text-sm font-medium">Email Address</Label>
             <Input
               placeholder="john@example.com"
-              className="bg-zinc-950 text-white border-zinc-800 focus:border-green-500"
+              className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white border-zinc-200 dark:border-zinc-800 focus:border-green-500"
             />
             <FieldError className="text-xs text-red-400 mt-1" />
           </TextField>
 
           {/* Password Field */}
           <TextField isRequired name="password" type="password" className="w-full">
-            <Label className="text-zinc-300 text-sm font-medium">Password</Label>
+            <Label className="text-zinc-700 dark:text-zinc-300 text-sm font-medium">Password</Label>
             <Input
               placeholder="••••••••"
-              className="bg-zinc-950 text-white border-zinc-800 focus:border-green-500"
+              className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white border-zinc-200 dark:border-zinc-800 focus:border-green-500"
             />
             <FieldError className="text-xs text-red-400 mt-1" />
           </TextField>
@@ -121,8 +121,8 @@ export default function LoginPage() {
 
             {/* Separator */}
             <div className="relative my-2 flex items-center justify-center">
-              <div className="absolute w-full border-t border-zinc-800" />
-              <span className="relative bg-zinc-900/40 px-3 text-xs uppercase text-zinc-600 tracking-wider">
+              <div className="absolute w-full border-t border-zinc-200 dark:border-zinc-800" />
+              <span className="relative bg-zinc-100 dark:bg-zinc-900/40 px-3 text-xs uppercase text-zinc-400 dark:text-zinc-600 tracking-wider">
                 Or Continue With
               </span>
             </div>
@@ -131,7 +131,7 @@ export default function LoginPage() {
             <Button
               type="button"
               onPress={handleGoogleLogin}
-              className="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-medium py-6 rounded-xl flex items-center justify-center gap-2 transition-all"
+              className="w-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-medium py-6 rounded-xl flex items-center justify-center gap-2 transition-all"
             >
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                 <path
@@ -157,7 +157,7 @@ export default function LoginPage() {
         </Form>
 
         {/* Auth Navigation Link */}
-        <p className="text-zinc-500 text-center text-sm mt-6 font-light">
+        <p className="text-zinc-400 dark:text-zinc-500 text-center text-sm mt-6 font-light">
           Don&apos;t have an account?{" "}
           <Link href="/auth/register" className="text-green-400 hover:underline font-medium ml-1">
             Register

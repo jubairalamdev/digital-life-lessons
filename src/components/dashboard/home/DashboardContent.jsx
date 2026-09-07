@@ -47,34 +47,34 @@ export default function DashboardContent({ lessons, favorites, userName }) {
     return (
         <div className="space-y-6 max-w-7xl mx-auto px-4 py-2">
             <div>
-                <h1 className="text-3xl font-black text-white tracking-tight">
+                <h1 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tight">
                     Welcome back, {userName}
                 </h1>
-                <p className="text-zinc-400 text-sm mt-1">
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
                     Track your custom contributions, favorites, and milestones.
                 </p>
             </div>
 
             {/* Metrics Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border border-zinc-900 bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
+                <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
                     <div className="space-y-1">
-                        <span className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
+                        <span className="text-zinc-400 dark:text-zinc-500 text-xs font-bold uppercase tracking-wider">
                             Lessons Created
                         </span>
-                        <h2 className="text-4xl font-black text-white">{lessons.length}</h2>
+                        <h2 className="text-4xl font-black text-zinc-900 dark:text-white">{lessons.length}</h2>
                     </div>
                     <div className="bg-blue-500/10 text-blue-400 p-4 rounded-xl border border-blue-500/20">
                         <BookOpen size={24} />
                     </div>
                 </div>
 
-                <div className="border border-zinc-900 bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
+                <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
                     <div className="space-y-1">
-                        <span className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
+                        <span className="text-zinc-400 dark:text-zinc-500 text-xs font-bold uppercase tracking-wider">
                             Saved Favorites
                         </span>
-                        <h2 className="text-4xl font-black text-white">{favorites.length}</h2>
+                        <h2 className="text-4xl font-black text-zinc-900 dark:text-white">{favorites.length}</h2>
                     </div>
                     <div className="bg-emerald-500/10 text-emerald-400 p-4 rounded-xl border border-emerald-500/20">
                         <Heart size={24} />
@@ -84,7 +84,7 @@ export default function DashboardContent({ lessons, favorites, userName }) {
 
             {/* Charts & Shortcuts Row */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-2 border border-zinc-900 bg-zinc-950 p-6 rounded-2xl shadow-xl">
+                <div className="lg:col-span-2 border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl shadow-xl">
                     <div className="w-full h-64 mt-2">
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={chartData}>
@@ -109,9 +109,9 @@ export default function DashboardContent({ lessons, favorites, userName }) {
                     </div>
                 </div>
 
-                <div className="border border-zinc-900 bg-zinc-950 p-6 rounded-2xl shadow-xl flex flex-col gap-3 justify-center">
+                <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl shadow-xl flex flex-col gap-3 justify-center">
                     <Link href="/dashboard/addLessons">
-                        <Button className="w-full justify-between bg-zinc-900 border border-zinc-800 text-white rounded-xl h-11">
+                        <Button className="w-full justify-between bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl h-11">
                             <span className="flex items-center gap-2">
                                 <PlusCircle size={16} className="text-blue-400" /> Create New Lesson
                             </span>
@@ -119,7 +119,7 @@ export default function DashboardContent({ lessons, favorites, userName }) {
                         </Button>
                     </Link>
                     <Link href="/dashboard/myLessons">
-                        <Button className="w-full justify-between bg-zinc-900 border border-zinc-800 text-white rounded-xl h-11">
+                        <Button className="w-full justify-between bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl h-11">
                             <span className="flex items-center gap-2">
                                 <BookOpen size={16} className="text-amber-400" /> Manage Lessons
                             </span>
@@ -130,9 +130,9 @@ export default function DashboardContent({ lessons, favorites, userName }) {
             </div>
 
             {/* Recent Lessons Table */}
-            <div className="border border-zinc-900 bg-zinc-950 rounded-2xl overflow-hidden shadow-xl p-4">
+            <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-2xl overflow-hidden shadow-xl p-4">
                 <div className="p-2 pb-4">
-                    <h3 className="text-lg font-bold text-white tracking-tight">
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">
                         Recently Added Lessons
                     </h3>
                 </div>

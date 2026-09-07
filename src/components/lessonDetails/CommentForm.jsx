@@ -21,7 +21,7 @@ const CommentForm = ({ user, lesson }) => {
     }
     return (
         <form 
-            className="flex gap-3 items-end bg-zinc-900/20 border border-zinc-900 p-4 rounded-xl"
+            className="flex gap-3 items-end bg-zinc-100 dark:bg-zinc-900/20 border border-zinc-100 dark:border-zinc-900 p-4 rounded-xl"
             onSubmit={(e) => {
                 e.preventDefault();
                 // Instantiate the structural FormData object using the submission target directly
@@ -35,10 +35,10 @@ const CommentForm = ({ user, lesson }) => {
                     type="text"
                     name='comment'
                     placeholder="Add your constructive reflection or experience inquiry..."
-                    className="bg-zinc-950 w-full text-white border border-zinc-800 rounded-xl outline-none"
+                    className="bg-white dark:bg-zinc-950 w-full text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl outline-none"
                 />
             </div>
-            <Button className="bg-zinc-800 hover:bg-zinc-700 text-white rounded-xl min-w-0 px-4 h-9 border border-zinc-700" type='submit'>
+            <Button className="bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-700 text-zinc-900 dark:text-white rounded-xl min-w-0 px-4 h-9 border border-zinc-300 dark:border-zinc-700" type='submit'>
                 <Send size={14} />
             </Button>
         </form>

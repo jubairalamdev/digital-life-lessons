@@ -29,25 +29,25 @@ const UpdateForm = ({ user }) => {
         >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label className="text-[11px] text-zinc-400 font-medium mb-1.5 block">Display Name</label>
+                    <label className="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium mb-1.5 block">Display Name</label>
                     <Input
                         size="sm"
                         type="text"
                         placeholder="Enter structural name"
                         defaultValue={user?.name}
                         name="name"
-                        className="bg-zinc-950 text-white rounded-xl border border-zinc-800 focus:border-zinc-700 outline-none"
+                        className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white rounded-xl border border-zinc-200 dark:border-zinc-800 focus:border-zinc-700 outline-none"
                     />
                 </div>
                 <div>
-                    <label className="text-[11px] text-zinc-400 font-medium mb-1.5 block">Photo Avatar URL</label>
+                    <label className="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium mb-1.5 block">Photo Avatar URL</label>
                     <Input
                         size="sm"
                         type="text"
                         placeholder="https://image-link.com"
                         defaultValue={user?.image}
                         name="image"
-                        className="bg-zinc-950 text-white rounded-xl border border-zinc-800 focus:border-zinc-700 outline-none"
+                        className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white rounded-xl border border-zinc-200 dark:border-zinc-800 focus:border-zinc-700 outline-none"
                     />
                 </div>
             </div>

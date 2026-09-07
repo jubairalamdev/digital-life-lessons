@@ -78,8 +78,8 @@ export default function ReportButton({ user, lesson }) {
                 isDisabled={isChecking || isReported}
                 className={`h-9 rounded-xl text-xs flex items-center gap-2 border transition-all ${
                     isReported 
-                        ? 'bg-zinc-900 text-zinc-600 border-zinc-800 cursor-not-allowed' 
-                        : 'bg-transparent hover:bg-red-500/5 text-zinc-500 hover:text-red-400 border-transparent hover:border-red-500/10'
+                        ? 'bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-600 border-zinc-200 dark:border-zinc-800 cursor-not-allowed' 
+                        : 'bg-transparent hover:bg-red-500/5 text-zinc-400 dark:text-zinc-500 hover:text-red-400 border-transparent hover:border-red-500/10'
                 }`}
             >
                 <AlertTriangle size={14} />
@@ -88,28 +88,28 @@ export default function ReportButton({ user, lesson }) {
 
             <Modal.Backdrop>
                 <Modal.Container>
-                    <Modal.Dialog className="sm:max-w-100 bg-zinc-950 border border-zinc-800 text-white">
+                    <Modal.Dialog className="sm:max-w-100 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white">
                         <Modal.CloseTrigger />
                         
                         <Modal.Header>
                             <Modal.Icon className="bg-red-500/10 text-red-400 border border-red-500/20">
                                 <AlertTriangle className="size-5" />
                             </Modal.Icon>
-                            <Modal.Heading className="text-white">Report Lesson</Modal.Heading>
+                            <Modal.Heading className="text-zinc-900 dark:text-white">Report Lesson</Modal.Heading>
                         </Modal.Header>
                         
                         <Modal.Body>
-                            <p className="text-zinc-400 text-sm mb-4">
+                            <p className="text-zinc-500 dark:text-zinc-400 text-sm mb-4">
                                 Help us understand the issue with: 
                             </p>
-                            <p className="text-white font-semibold text-sm mb-4 truncate">
+                            <p className="text-zinc-900 dark:text-white font-semibold text-sm mb-4 truncate">
                                 &quot;{lesson.title}&ldquo;
                             </p>
                             
                             <select 
                                 value={reason} 
                                 onChange={(e) => setReason(e.target.value)}
-                                className="w-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-sm rounded-xl p-3 focus:outline-none focus:border-red-500/50 appearance-none cursor-pointer"
+                                className="w-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm rounded-xl p-3 focus:outline-none focus:border-red-500/50 appearance-none cursor-pointer"
                             >
                                 <option value="" disabled>Select a reason...</option>
                                 {REPORT_REASONS.map(r => (
@@ -122,7 +122,7 @@ export default function ReportButton({ user, lesson }) {
                             <Button 
                                 variant="flat" 
                                 slot="close" // Retains HeroUI's auto-close feature on click
-                                className="bg-zinc-900 text-zinc-400 border border-zinc-800 rounded-xl"
+                                className="bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded-xl"
                             >
                                 Cancel
                             </Button>

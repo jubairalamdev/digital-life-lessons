@@ -30,7 +30,7 @@ export default function DeleteLessonAction({ lessonId, lessonTitle, onDeleteSucc
             <Button 
                 size="sm" 
                 onClick={() => setIsOpen(true)}
-                className="bg-zinc-900 hover:bg-red-950/40 border border-zinc-800/80 text-red-400 rounded-xl px-3 h-8 text-xs font-semibold flex items-center gap-1.5 transition-all"
+                className="bg-zinc-100 dark:bg-zinc-900 hover:bg-red-950/40 border border-zinc-200 dark:border-zinc-800/80 text-red-400 rounded-xl px-3 h-8 text-xs font-semibold flex items-center gap-1.5 transition-all"
             >
                 <Trash2 size={13} /> Delete
             </Button>
@@ -39,26 +39,26 @@ export default function DeleteLessonAction({ lessonId, lessonTitle, onDeleteSucc
             <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
                 <Modal.Backdrop>
                     <Modal.Container>
-                        <Modal.Dialog className="bg-zinc-950 border border-zinc-900 shadow-2xl rounded-2xl max-w-md w-full p-6 text-left">
-                            <Modal.CloseTrigger className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-300 transition-colors" />
+                        <Modal.Dialog className="bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 shadow-2xl rounded-2xl max-w-md w-full p-6 text-left">
+                            <Modal.CloseTrigger className="absolute top-4 right-4 text-zinc-400 dark:text-zinc-500 hover:text-zinc-300 transition-colors" />
                             
                             <Modal.Header>
-                                <Modal.Heading className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                                <Modal.Heading className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight flex items-center gap-2">
                                     Delete Lesson
                                 </Modal.Heading>
                             </Modal.Header>
                             
                             <Modal.Body className="py-3">
-                                <p className="text-zinc-400 text-sm leading-relaxed">
-                                    Are you sure you want to permanently delete <span className="text-white font-semibold">&quot;{lessonTitle}&ldquo;</span>? This action cannot be undone.
+                                <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">
+                                    Are you sure you want to permanently delete <span className="text-zinc-900 dark:text-white font-semibold">&quot;{lessonTitle}&ldquo;</span>? This action cannot be undone.
                                 </p>
                             </Modal.Body>
                             
-                            <Modal.Footer className="flex items-center justify-end gap-3 pt-4 border-t border-zinc-900/60">
+                            <Modal.Footer className="flex items-center justify-end gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-900/60">
                                 <Button 
                                     size="sm"
                                     onClick={() => setIsOpen(false)}
-                                    className="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 font-medium px-4 h-9 rounded-xl border border-zinc-800"
+                                    className="bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-medium px-4 h-9 rounded-xl border border-zinc-200 dark:border-zinc-800"
                                 >
                                     Cancel
                                 </Button>

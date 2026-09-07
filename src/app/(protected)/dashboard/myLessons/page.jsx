@@ -31,16 +31,16 @@ export default async function MyLessonsPage() {
             console.error("Failed to fetch user lessons pipeline:", error);
         }
         return (
-            <section className="w-full border-zinc-900 relative">
+            <section className="w-full border-zinc-100 dark:border-zinc-900 relative">
                 <div className="container mx-auto max-w-6xl">
 
                     {/* Section Header Consistent with Top Contributors / Wisdom blocks */}
                     <div className="mb-8">
-                        <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                        <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight flex items-center gap-2">
                             <Sparkles className="text-green-400 fill-green-400/10" size={26} />
                             My Archived <span className="text-green-400">Lessons</span>
                         </h2>
-                        <p className="text-zinc-500 text-sm mt-2 font-light">
+                        <p className="text-zinc-400 dark:text-zinc-500 text-sm mt-2 font-light">
                             Manage, review performance, configure access controls, or refine your recorded life insights.
                         </p>
                     </div>

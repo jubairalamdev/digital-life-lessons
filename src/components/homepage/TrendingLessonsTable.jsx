@@ -6,14 +6,14 @@ import { TrendingRow } from './TrendingRow';
 
 export default function TrendingLessonsTable({ topSavedCounters, baseUrl }) {
     return (
-        <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden shadow-xl">
-            <Table aria-label="Most Saved Trend Items" className="text-zinc-300">
+        <div className="bg-zinc-100 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden shadow-xl">
+            <Table aria-label="Most Saved Trend Items" className="text-zinc-700 dark:text-zinc-300">
                 <Table.ScrollContainer>
                     <Table.Content className="min-w-[600px]">
                         <Table.Header>
-                            <Table.Column isRowHeader className="bg-zinc-900 text-zinc-400 font-bold">Lesson Name</Table.Column>
-                            <Table.Column className="bg-zinc-900 text-zinc-400 font-bold">System Tone</Table.Column>
-                            <Table.Column className="bg-zinc-900 text-zinc-400 font-bold text-right">Count Favorites</Table.Column>
+                            <Table.Column isRowHeader className="bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 font-bold">Lesson Name</Table.Column>
+                            <Table.Column className="bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 font-bold">System Tone</Table.Column>
+                            <Table.Column className="bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 font-bold text-right">Count Favorites</Table.Column>
                         </Table.Header>
                         <Table.Body>
                             {topSavedCounters.length > 0 ? (
@@ -26,7 +26,7 @@ export default function TrendingLessonsTable({ topSavedCounters, baseUrl }) {
                                 ))
                             ) : (
                                 <Table.Row>
-                                    <Table.Cell className="text-center text-zinc-500 py-6" colSpan={3}>
+                                    <Table.Cell className="text-center text-zinc-400 dark:text-zinc-500 py-6" colSpan={3}>
                                         No life-lessons compiled into aggregate bookmark queues.
                                     </Table.Cell>
                                 </Table.Row>

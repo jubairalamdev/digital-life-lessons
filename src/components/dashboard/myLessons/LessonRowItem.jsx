@@ -15,23 +15,23 @@ const LessonRowItem = {
                     alt={lesson.name}
                     width={100}
                     height={100}
-                    className="w-12 h-12 rounded-lg object-cover border border-zinc-800"
+                    className="w-12 h-12 rounded-lg object-cover border border-zinc-200 dark:border-zinc-800"
                 />
             ) : (
-                <div className="w-12 h-12 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-600 font-mono text-xs">
+                <div className="w-12 h-12 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400 dark:text-zinc-600 font-mono text-xs">
                     N/A
                 </div>
             )}
             <div className="flex flex-col max-w-xs">
-                <span className="text-white font-bold text-base line-clamp-1">{lesson.title}</span>
-                <span className="text-zinc-500 text-xs font-mono line-clamp-1">ID: {lesson._id}</span>
+                <span className="text-zinc-900 dark:text-white font-bold text-base line-clamp-1">{lesson.title}</span>
+                <span className="text-zinc-400 dark:text-zinc-500 text-xs font-mono line-clamp-1">ID: {lesson._id}</span>
             </div>
         </div>
     ),
 
     // 2. Category styling matching main layout badges
     CategoryCell: ({ lesson }) => (
-        <div className="py-4 text-zinc-300 text-base font-medium">
+        <div className="py-4 text-zinc-700 dark:text-zinc-300 text-base font-medium">
             {lesson.category}
         </div>
     ),
@@ -42,7 +42,7 @@ const LessonRowItem = {
             <Chip
                 variant="flat"
                 size="sm"
-                className={`${lesson.visibility?.toLowerCase() === 'public' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-zinc-800 text-zinc-400'} font-bold uppercase text-xs rounded-md px-1`}
+                className={`${lesson.visibility?.toLowerCase() === 'public' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400'} font-bold uppercase text-xs rounded-md px-1`}
             >
                 {lesson.visibility || "Public"}
             </Chip>
@@ -64,17 +64,17 @@ const LessonRowItem = {
 
     // 5. Aggregate interactive tracking performance analytics stats
     MetricsCell: ({ lesson }) => (
-        <div className="py-4 flex flex-col gap-1 text-sm text-zinc-400">
+        <div className="py-4 flex flex-col gap-1 text-sm text-zinc-500 dark:text-zinc-400">
             <span className="flex items-center gap-1.5 font-medium">
-                <ThumbsUp size={13} className="text-zinc-500" /> {lesson.likes.length || 0} Likes
+                <ThumbsUp size={13} className="text-zinc-400 dark:text-zinc-500" /> {lesson.likes.length || 0} Likes
             </span>
         </div>
     ),
 
     // 6. Native Date Stamp Format Parsing block
     DateCell: ({ lesson }) => (
-        <div className="py-4 text-zinc-400 text-sm font-medium flex items-center gap-1.5">
-            <Calendar size={14} className="text-zinc-600" />
+        <div className="py-4 text-zinc-500 dark:text-zinc-400 text-sm font-medium flex items-center gap-1.5">
+            <Calendar size={14} className="text-zinc-400 dark:text-zinc-600" />
             {lesson.createdAt ? new Date(lesson.createdAt).toLocaleDateString() : "Recent"}
         </div>
     ),

@@ -3,7 +3,7 @@
 
 .hero-swiper-custom .swiper-button-next,
 .hero-swiper-custom .swiper-button-prev {
-    color: rgba(255, 255, 255, 0.4) !important;
+    color: rgba(0, 0, 0, 0.35) !important;
     transform: scale(0.75);
     transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -15,6 +15,11 @@
     transform: scale(0.85);
 }
 
+.dark .hero-swiper-custom .swiper-button-next,
+.dark .hero-swiper-custom .swiper-button-prev {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
 .hero-swiper-custom .swiper-pagination-bullet-active {
     background: #34d399 !important;
     /* emerald-400 */
@@ -23,6 +28,10 @@
 }
 
 .hero-swiper-custom .swiper-pagination-bullet {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .hero-swiper-custom .swiper-pagination-bullet {
     background: #ffffff;
 }
 

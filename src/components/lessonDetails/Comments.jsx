@@ -8,7 +8,7 @@ const CommentsSection = ({ comments }) => {
     return (
         <div className="space-y-4">
             {comments.length === 0 ? (
-                <p className="text-sm text-zinc-500 italic">No comments for this lesson yet.</p>
+                <p className="text-sm text-zinc-400 dark:text-zinc-500 italic">No comments for this lesson yet.</p>
             ) : (
                 comments.map(async(comment) => {
                     // Safely format the timestamp to "Month Year" (e.g., "June 2026")
@@ -24,22 +24,22 @@ const CommentsSection = ({ comments }) => {
                     return (
                         <div
                             key={comment._id || comment.id}
-                            className="bg-zinc-900/10 border border-zinc-900/60 rounded-xl p-4 space-y-2"
+                            className="bg-zinc-100 dark:bg-zinc-900/10 border border-zinc-100 dark:border-zinc-900/60 rounded-xl p-4 space-y-2"
                         >
                             <div className="flex items-center justify-between text-xs">
                                 {/* Dynamic Author Name */}
-                                <span className="font-bold text-zinc-300">
+                                <span className="font-bold text-zinc-700 dark:text-zinc-300">
                                     {authorName || 'Anonymous'}
                                 </span>
 
                                 {/* Dynamic Formatted Date */}
-                                <span className="font-mono text-zinc-600">
+                                <span className="font-mono text-zinc-400 dark:text-zinc-600">
                                     {formattedDate}
                                 </span>
                             </div>
 
                             {/* Dynamic Comment Body */}
-                            <p className="text-sm font-light text-zinc-400 leading-relaxed">
+                            <p className="text-sm font-light text-zinc-500 dark:text-zinc-400 leading-relaxed">
                                 {comment.comment}
                             </p>
                         </div>

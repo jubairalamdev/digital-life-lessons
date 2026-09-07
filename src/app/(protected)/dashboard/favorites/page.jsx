@@ -26,17 +26,17 @@ const MyFavoritesPage = async () => {
         const favoriteEntries = await serverFetchById(`/api/favorites`, currentUserId, ["favorites"]) || [];
 
         return (
-            <div className="w-full max-w-6xl mx-auto space-y-6 select-none p-4 md:p-8 text-zinc-100">
+            <div className="w-full max-w-6xl mx-auto space-y-6 select-none p-4 md:p-8 text-zinc-900 dark:text-zinc-100">
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-900">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-zinc-900">
                     <div>
-                        <h1 className="text-2xl font-black tracking-tight text-white">My Saved Favorites</h1>
-                        <p className="text-zinc-500 text-xs mt-0.5 font-light">
+                        <h1 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">My Saved Favorites</h1>
+                        <p className="text-zinc-400 dark:text-zinc-500 text-xs mt-0.5 font-light">
                             Review, inspect, or offload compiled bookmark cards tracking community insight wisdom.
                         </p>
                     </div>
                     <Link href="/allLessons">
-                        <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 text-xs rounded-xl flex items-center gap-2 h-9">
+                        <Button size="sm" className="bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 text-xs rounded-xl flex items-center gap-2 h-9">
                             <ArrowLeftCircle size={14} /> Back to Feed
                         </Button>
                     </Link>
@@ -45,7 +45,7 @@ const MyFavoritesPage = async () => {
                 {favoriteEntries.length > 0 ? (
                     /* Dynamic Client-Safe Hydration Guard Container */
                     <FavoritesTableWrapper>
-                        <Table.Header className="bg-zinc-900/40 border-b border-zinc-900 text-zinc-400 font-bold text-xs uppercase tracking-wider">
+                        <Table.Header className="bg-zinc-100 dark:bg-zinc-900/40 border-b border-zinc-100 dark:border-zinc-900 text-zinc-500 dark:text-zinc-400 font-bold text-xs uppercase tracking-wider">
                             <Table.Column isRowHeader className="pl-6 h-12">Title / Subject Track</Table.Column>
                             <Table.Column className="h-12">Category</Table.Column>
                             <Table.Column className="h-12">Emotional Tone</Table.Column>
@@ -64,8 +64,8 @@ const MyFavoritesPage = async () => {
                         </Table.Body>
                     </FavoritesTableWrapper>
                 ) : (
-                    <div className="w-full text-center py-20 bg-zinc-900/10 border border-dashed border-zinc-900 rounded-2xl">
-                        <p className="text-zinc-500 text-sm font-light">
+                    <div className="w-full text-center py-20 bg-zinc-100 dark:bg-zinc-900/10 border border-dashed border-zinc-100 dark:border-zinc-900 rounded-2xl">
+                        <p className="text-zinc-400 dark:text-zinc-500 text-sm font-light">
                             No life lessons discovered inside your personalized bookmarks tracker.
                         </p>
                     </div>

@@ -47,7 +47,7 @@ export default function LikeButton({ user, lesson }) {
             className={`h-9 rounded-xl text-xs flex items-center gap-2 border transition-all ${
                 isLiked 
                     ? 'bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500/20' 
-                    : 'bg-zinc-900 text-zinc-200 border-zinc-800 hover:bg-zinc-800'
+                    : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-800'
             }`}
         >
             {/* fill-current ensures the heart icon fills with color when liked */}

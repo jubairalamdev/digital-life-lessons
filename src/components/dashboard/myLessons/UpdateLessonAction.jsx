@@ -70,7 +70,7 @@ export default function UpdateLessonAction({ lesson, isPremiumUser, onUpdateSucc
             <Button 
                 size="sm" 
                 onClick={() => setIsOpen(true)}
-                className="bg-zinc-900 hover:bg-blue-950/40 border border-zinc-800/80 text-blue-400 rounded-xl px-3 h-8 text-xs font-semibold flex items-center gap-1.5 transition-all"
+                className="bg-zinc-100 dark:bg-zinc-900 hover:bg-blue-950/40 border border-zinc-200 dark:border-zinc-800/80 text-blue-400 rounded-xl px-3 h-8 text-xs font-semibold flex items-center gap-1.5 transition-all"
             >
                 <Edit size={13} /> Update
             </Button>
@@ -79,17 +79,17 @@ export default function UpdateLessonAction({ lesson, isPremiumUser, onUpdateSucc
             <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
-                        <Modal.Dialog className="bg-zinc-950 border border-zinc-900 shadow-2xl rounded-2xl max-w-md w-full text-left">
-                            <Modal.CloseTrigger className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-300 transition-colors" />
+                        <Modal.Dialog className="bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 shadow-2xl rounded-2xl max-w-md w-full text-left">
+                            <Modal.CloseTrigger className="absolute top-4 right-4 text-zinc-400 dark:text-zinc-500 hover:text-zinc-300 transition-colors" />
                             
                             <Modal.Header className="p-6 pb-0">
                                 <Modal.Icon className="bg-blue-500/10 text-blue-400 p-2 rounded-xl border border-blue-500/20 inline-block mb-3">
                                     <Sparkles className="size-5" />
                                 </Modal.Icon>
-                                <Modal.Heading className="text-xl font-bold text-white tracking-tight">
+                                <Modal.Heading className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">
                                     Edit Lesson Details
                                 </Modal.Heading>
-                                <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
+                                <p className="mt-1.5 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
                                     Modify your custom lesson properties below. Changes will sync to the live application database ecosystem immediately.
                                 </p>
                             </Modal.Header>
@@ -100,44 +100,44 @@ export default function UpdateLessonAction({ lesson, isPremiumUser, onUpdateSucc
                                         
                                         {/* Lesson Title input mapping field */}
                                         <TextField className="w-full" name="title" type="text" variant="secondary" defaultValue={lesson.title}>
-                                            <Label className="text-zinc-400 text-xs font-bold uppercase mb-1 block">Lesson Title</Label>
-                                            <Input placeholder="E.g., Rebuilding Trust" className="bg-zinc-900 border border-zinc-800 text-white rounded-xl text-sm" required />
+                                            <Label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase mb-1 block">Lesson Title</Label>
+                                            <Input placeholder="E.g., Rebuilding Trust" className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl text-sm" required />
                                         </TextField>
 
                                         {/* Description Field mapping logic */}
                                         <TextField className="w-full" name="description" type="text" variant="secondary" defaultValue={lesson.description}>
-                                            <Label className="text-zinc-400 text-xs font-bold uppercase mb-1 block">Description</Label>
-                                            <Input placeholder="Enter details..." className="bg-zinc-900 border border-zinc-800 text-white rounded-xl text-sm" required />
+                                            <Label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase mb-1 block">Description</Label>
+                                            <Input placeholder="Enter details..." className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl text-sm" required />
                                         </TextField>
 
                                         <div className="grid grid-cols-2 gap-3">
                                             {/* Category Entry point segment */}
                                             <TextField name="category" type="text" variant="secondary" defaultValue={lesson.category || "Mindset"}>
-                                                <Label className="text-zinc-400 text-xs font-bold uppercase mb-1 block">Category</Label>
-                                                <Input placeholder="Mindset" className="bg-zinc-900 border border-zinc-800 text-white rounded-xl text-sm" required />
+                                                <Label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase mb-1 block">Category</Label>
+                                                <Input placeholder="Mindset" className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl text-sm" required />
                                             </TextField>
 
                                             {/* Emotional Tone Element structure block */}
                                             <TextField name="emotionalTone" type="text" variant="secondary" defaultValue={lesson.emotionalTone || "Realization"}>
-                                                <Label className="text-zinc-400 text-xs font-bold uppercase mb-1 block">Tone</Label>
-                                                <Input placeholder="Sad" className="bg-zinc-900 border border-zinc-800 text-white rounded-xl text-sm" required />
+                                                <Label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase mb-1 block">Tone</Label>
+                                                <Input placeholder="Sad" className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl text-sm" required />
                                             </TextField>
                                         </div>
 
                                         {/* Optional Image Payload Address Source string */}
                                         <TextField className="w-full" name="image" type="url" variant="secondary" defaultValue={lesson.image}>
-                                            <Label className="text-zinc-400 text-xs font-bold uppercase mb-1 block">Cover Artwork URL</Label>
-                                            <Input placeholder="https://images.unsplash.com/..." className="bg-zinc-900 border border-zinc-800 text-white rounded-xl text-sm" />
+                                            <Label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase mb-1 block">Cover Artwork URL</Label>
+                                            <Input placeholder="https://images.unsplash.com/..." className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl text-sm" />
                                         </TextField>
 
                                         <div className="grid grid-cols-2 gap-3">
                                             {/* Visibility selection tracking cell mapping block */}
                                             <div className="flex flex-col gap-1">
-                                                <label className="text-zinc-400 text-xs font-bold uppercase">Visibility</label>
+                                                <label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase">Visibility</label>
                                                 <select 
                                                     name="visibility" 
                                                     defaultValue={lesson.visibility || "Public"}
-                                                    className="w-full h-10 bg-zinc-900 border border-zinc-800 text-zinc-200 rounded-xl px-3 text-sm focus:outline-none font-medium"
+                                                    className="w-full h-10 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-xl px-3 text-sm focus:outline-none font-medium"
                                                 >
                                                     <option value="Public">Public</option>
                                                     <option value="Private">Private</option>
@@ -146,12 +146,12 @@ export default function UpdateLessonAction({ lesson, isPremiumUser, onUpdateSucc
 
                                             {/* Access restrictions checking subscription constraints validation */}
                                             <div className="flex flex-col gap-1">
-                                                <label className="text-zinc-400 text-xs font-bold uppercase">Access Tier</label>
+                                                <label className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase">Access Tier</label>
                                                 <select 
                                                     name="accessLevel" 
                                                     disabled={!isPremiumUser}
                                                     defaultValue={lesson.accessLevel || "Free"}
-                                                    className="w-full h-10 bg-zinc-900 border border-zinc-800 text-zinc-200 rounded-xl px-3 text-sm focus:outline-none font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+                                                    className="w-full h-10 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-xl px-3 text-sm focus:outline-none font-medium disabled:opacity-40 disabled:cursor-not-allowed"
                                                 >
                                                     <option value="Free">Free</option>
                                                     <option value="Premium">Premium</option>
@@ -163,12 +163,12 @@ export default function UpdateLessonAction({ lesson, isPremiumUser, onUpdateSucc
                                         </div>
 
                                         {/* Operations Footer Buttons Row */}
-                                        <div className="flex items-center justify-end gap-3 pt-4 border-t border-zinc-900 mt-2">
+                                        <div className="flex items-center justify-end gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-900 mt-2">
                                             <Button 
                                                 type="button"
                                                 size="sm"
                                                 onClick={() => setIsOpen(false)}
-                                                className="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 font-medium px-4 h-9 rounded-xl border border-zinc-800"
+                                                className="bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-medium px-4 h-9 rounded-xl border border-zinc-200 dark:border-zinc-800"
                                             >
                                                 Cancel
                                             </Button>

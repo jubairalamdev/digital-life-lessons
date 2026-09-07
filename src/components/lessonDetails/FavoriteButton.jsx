@@ -70,7 +70,7 @@ const FavoriteButton = ({ lesson, user }) => {
 
     if (loading) {
         return (
-            <Button size="sm" isDisabled className="h-9 rounded-xl text-xs bg-zinc-900 text-zinc-500 border border-zinc-800 animate-pulse">
+            <Button size="sm" isDisabled className="h-9 rounded-xl text-xs bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800 animate-pulse">
                 Checking status...
             </Button>
         );
@@ -84,7 +84,7 @@ const FavoriteButton = ({ lesson, user }) => {
             className={`h-9 rounded-xl text-xs flex items-center gap-2 border transition-colors ${
                 isFavorited 
                     ? "bg-amber-500/10 border-amber-500/30 text-amber-500 cursor-not-allowed" 
-                    : "bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border-zinc-800"
+                    : "bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-800"
             }`}
         >
             <Bookmark 

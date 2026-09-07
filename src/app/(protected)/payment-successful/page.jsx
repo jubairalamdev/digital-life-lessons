@@ -36,8 +36,8 @@ export default async function Success({ searchParams }) {
     }
     await serverMutation(`/api/users/upgrade/plan/${user.id}`, userPayload, 'PATCH');
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center p-4">
-        <div className="border border-zinc-800 bg-zinc-950 rounded-3xl p-10 md:p-12 max-w-lg w-full text-center shadow-2xl relative overflow-hidden">
+      <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center p-4">
+        <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 rounded-3xl p-10 md:p-12 max-w-lg w-full text-center shadow-2xl relative overflow-hidden">
           
           {/* Subtle background glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-blue-600/10 blur-3xl rounded-full -z-10" />
@@ -50,7 +50,7 @@ export default async function Success({ searchParams }) {
           </div>
 
           {/* Text Content */}
-          <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">
+          <h1 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-white tracking-tight mb-2">
             Payment Successful!
           </h1>
           
@@ -58,13 +58,13 @@ export default async function Success({ searchParams }) {
             Welcome to Premium ⭐
           </p>
 
-          <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 mb-8 flex items-center gap-3 justify-start">
-            <div className="bg-zinc-800 p-2 rounded-lg">
-              <Mail size={16} className="text-zinc-400" />
+          <div className="bg-zinc-100 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 mb-8 flex items-center gap-3 justify-start">
+            <div className="bg-zinc-200 dark:bg-zinc-800 p-2 rounded-lg">
+              <Mail size={16} className="text-zinc-500 dark:text-zinc-400" />
             </div>
-            <p className="text-sm text-zinc-400 text-left">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 text-left">
               A confirmation receipt has been sent to{' '}
-              <span className="text-white font-semibold block sm:inline">
+              <span className="text-zinc-900 dark:text-white font-semibold block sm:inline">
                 {customerEmail}
               </span>
             </p>

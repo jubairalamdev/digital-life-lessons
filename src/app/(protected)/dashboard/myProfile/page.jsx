@@ -17,8 +17,8 @@ const ProfilePage = async () => {
 
     if (!sessionUser) {
         return (
-            <div className="w-full py-12 text-center bg-zinc-900/10 border border-zinc-800 rounded-2xl">
-                <p className="text-zinc-500 text-sm font-light">Please log in to view your dashboard profile metrics.</p>
+            <div className="w-full py-12 text-center bg-zinc-100 dark:bg-zinc-900/10 border border-zinc-200 dark:border-zinc-800 rounded-2xl">
+                <p className="text-zinc-400 dark:text-zinc-500 text-sm font-light">Please log in to view your dashboard profile metrics.</p>
             </div>
         );
     }
@@ -41,7 +41,7 @@ const ProfilePage = async () => {
             <div className="w-full max-w-5xl mx-auto space-y-12 select-none">
 
                 {/* PROFILE MANAGEMENT CONTAINER CARDFRAME */}
-                <div className="bg-zinc-900/20 border border-zinc-800/80 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-2xl">
+                <div className="bg-zinc-100 dark:bg-zinc-900/20 border border-zinc-200 dark:border-zinc-800/80 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-2xl">
                     {/* Background Accent Mesh */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -53,11 +53,11 @@ const ProfilePage = async () => {
                             <img
                                 src={databaseUser?.image || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
                                 alt={databaseUser?.name || "User Avatar"}
-                                className="w-24 h-24 rounded-2xl object-cover border-2 border-zinc-800"
+                                className="w-24 h-24 rounded-2xl object-cover border-2 border-zinc-200 dark:border-zinc-800"
                             />
                             <div className="flex flex-col text-center sm:text-left space-y-2 mt-1">
                                 <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                                    <h2 className="text-2xl font-extrabold text-white tracking-tight">
+                                    <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
                                         {databaseUser?.name || "Community Member"}
                                     </h2>
                                     {isPremium && (
@@ -66,14 +66,14 @@ const ProfilePage = async () => {
                                         </span>
                                     )}
                                 </div>
-                                <p className="text-zinc-500 text-sm font-mono">{databaseUser?.email}</p>
+                                <p className="text-zinc-400 dark:text-zinc-500 text-sm font-mono">{databaseUser?.email}</p>
 
                                 {/* Counter Metrics Block */}
-                                <div className="flex items-center gap-4 mt-2 text-xs font-medium text-zinc-400">
-                                    <span className="bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                                <div className="flex items-center gap-4 mt-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                                    <span className="bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800/60">
                                         ✍️ {userLessons.length} Lessons Shared
                                     </span>
-                                    <span className="bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-800/60">
+                                    <span className="bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800/60">
                                         💾 {databaseUser?.savedLessonsCount || 0} Saved
                                     </span>
                                 </div>
@@ -83,8 +83,8 @@ const ProfilePage = async () => {
                     </div>
 
                     {/* MODIFICATION WORKSPACE FORM FRAME */}
-                    <div className="mt-8 pt-6 border-t border-zinc-900 max-w-xl">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
+                    <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-zinc-900 max-w-xl">
+                        <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-4">
                             Update Account Details
                         </h3>
                         <UpdateForm user={databaseUser} />
@@ -94,10 +94,10 @@ const ProfilePage = async () => {
                 {/* DYNAMIC SUBSECTION: USER WRITTEN INSIGHTS */}
                 <div className="space-y-6">
                     <div>
-                        <h3 className="text-xl font-bold text-white tracking-tight">
+                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">
                             Your Public Insights
                         </h3>
-                        <p className="text-zinc-500 text-xs font-light mt-0.5">
+                        <p className="text-zinc-400 dark:text-zinc-500 text-xs font-light mt-0.5">
                             Displaying all wisdom cards currently exposed to public tracks.
                         </p>
                     </div>
@@ -112,8 +112,8 @@ const ProfilePage = async () => {
                             ))}
                         </div>
                     ) : (
-                        <div className="w-full text-center py-16 bg-zinc-900/10 border border-dashed border-zinc-800 rounded-2xl">
-                            <p className="text-zinc-500 text-sm font-light">
+                        <div className="w-full text-center py-16 bg-zinc-100 dark:bg-zinc-900/10 border border-dashed border-zinc-200 dark:border-zinc-800 rounded-2xl">
+                            <p className="text-zinc-400 dark:text-zinc-500 text-sm font-light">
                                 You haven&apos;t generated or populated any public lessons yet.
                             </p>
                         </div>
