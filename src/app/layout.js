@@ -25,6 +25,23 @@ export default function RootLayout({ children }) {
       style={{ fontFamily: "var(--font-nunito), sans-serif" }}
     >
       <body className="bg-background text-foreground w-full">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var theme = localStorage.getItem('theme');
+                var root = document.documentElement;
+                if (theme === 'light') {
+                  root.classList.remove('dark');
+                  root.setAttribute('data-theme', 'light');
+                } else {
+                  root.classList.add('dark');
+                  root.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
         {children}
         <ToastContainer
           position="top-right"

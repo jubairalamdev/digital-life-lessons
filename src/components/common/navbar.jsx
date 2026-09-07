@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button, Skeleton } from "@heroui/react";
 import { Bars, Xmark } from "@gravity-ui/icons";
+import { Sun, Moon } from "lucide-react";
 import Image from "next/image";
 
 import { authClient } from "@/lib/auth-client";
@@ -12,6 +13,26 @@ import { logOutUser } from "@/lib/actions/authentication";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [theme, setTheme] = useState(() =>
+    typeof window !== "undefined" &&
+    document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light"
+  );
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    const root = document.documentElement;
+    if (next === "dark") {
+      root.classList.add("dark");
+      root.setAttribute("data-theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      root.setAttribute("data-theme", "light");
+    }
+  };
 
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
@@ -61,7 +82,7 @@ export default function Navbar() {
               <div className="text-xl">
                 DIGITAL <span className="text-green-400">LIFE</span>
               </div>
-              <div className="-mt-2 tracking-[0.45rem] text-gray-300">
+              <div className="-mt-2 tracking-[0.45rem] text-gray-500 dark:text-gray-300">
                 LESSONS
               </div>
             </div>
@@ -83,6 +104,13 @@ export default function Navbar() {
 
         {/* AUTH */}
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           {isPending ? (
             <Skeleton className="h-10 w-10 rounded-full" />
           ) : user ? (
@@ -91,7 +119,7 @@ export default function Navbar() {
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
                 className="flex items-center gap-2"
               >
-                <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-700">
+                <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-300 dark:border-zinc-700">
                   <Image
                     src={user.image || "/images/logo-small.png"}
                     alt="avatar"
@@ -103,14 +131,14 @@ export default function Navbar() {
               </button>
 
               {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl py-2 z-50 text-sm">
-                  <div className="px-4 py-2 border-b border-zinc-800 text-xs text-zinc-400">
+                <div className="absolute right-0 mt-2 w-48 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl py-2 z-50 text-sm">
+                  <div className="px-4 py-2 border-b border-zinc-300 dark:border-zinc-800 text-xs text-zinc-500 dark:text-zinc-400">
                     {user.name}
                   </div>
 
                   <Link
                     href={routes.profile}
-                    className="block px-4 py-2 hover:bg-zinc-800"
+                    className="block px-4 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-800"
                     onClick={() => setIsProfileOpen(false)}
                   >
                     My Profile
@@ -118,7 +146,7 @@ export default function Navbar() {
 
                   <Link
                     href={routes.dashboard}
-                    className="block px-4 py-2 hover:bg-zinc-800"
+                    className="block px-4 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-800"
                     onClick={() => setIsProfileOpen(false)}
                   >
                     Dashboard
@@ -126,7 +154,7 @@ export default function Navbar() {
 
                   <button
                     onClick={handleLogout}
-                    className="w-full text-left px-4 py-2 text-red-400 hover:bg-zinc-800"
+                    className="w-full text-left px-4 py-2 text-red-400 hover:bg-zinc-200 dark:hover:bg-zinc-800"
                   >
                     Logout
                   </button>
@@ -159,6 +187,13 @@ export default function Navbar() {
             <li><Link href="/pricing" onClick={() => setIsMenuOpen(false)}>Pricing / Upgrade</Link></li>
 
             <li className="mt-4 border-t pt-4 flex flex-col gap-2">
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-2 px-4 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900/40 rounded-xl transition-colors"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+              </button>
               {user ? (
                 <>
                   <div className="flex items-center gap-3 py-2">
