@@ -35,7 +35,7 @@ const CommentForm = ({ user, lesson }) => {
                     type="text"
                     name='comment'
                     placeholder="Add your constructive reflection or experience inquiry..."
-                    className="bg-white dark:bg-zinc-950 w-full text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl outline-none"
+                    className="bg-white dark:bg-transparent w-full text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl outline-none"
                 />
             </div>
             <Button className="bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-700 text-zinc-900 dark:text-white rounded-xl min-w-0 px-4 h-9 border border-zinc-300 dark:border-zinc-700" type='submit'>
