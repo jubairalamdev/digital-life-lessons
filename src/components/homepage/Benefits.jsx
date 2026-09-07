@@ -45,7 +45,7 @@ const cardVariants = {
 
 export default function WhyLifeLessons() {
   return (
-    <section className="w-full py-16 bg-zinc-950  border-zinc-900 relative overflow-hidden">
+    <section className="w-full py-16 bg-white dark:bg-zinc-950  border-zinc-100 dark:border-zinc-900 relative overflow-hidden">
       {/* Background radial accent glow */}
       <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-green-500/5 rounded-full blur-[130px] pointer-events-none" />
 
@@ -53,10 +53,10 @@ export default function WhyLifeLessons() {
         
         {/* Consistent Layout Heading */}
         <div className="mb-12 text-center md:text-left">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
             Why Learning From <span className="text-green-400">Life Matters</span>
           </h2>
-          <p className="text-zinc-500 text-sm mt-2 font-light max-w-xl">
+          <p className="text-zinc-400 dark:text-zinc-500 text-sm mt-2 font-light max-w-xl">
             A structured framework designed to preserve milestone perspectives and build an evolving foundation of wisdom.
           </p>
         </div>
@@ -73,20 +73,22 @@ export default function WhyLifeLessons() {
             <motion.div
               key={idx}
               variants={cardVariants}
-              className="group bg-zinc-900/30 backdrop-blur-sm border border-zinc-800/80 hover:border-zinc-700 p-6 rounded-2xl flex flex-col justify-start transition-all duration-300 shadow-md h-[240px] select-none"
+              className="group bg-zinc-100 dark:bg-zinc-900/30 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 dark:hover:border-zinc-700 p-6 rounded-2xl flex flex-col justify-start transition-all duration-300 shadow-md h-[240px] select-none"
             >
               {/* Icon Container */}
-              <div className="text-2xl mb-4 bg-zinc-800/50 w-12 h-12 rounded-xl flex items-center justify-center border border-zinc-700/50 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl mb-4 bg-zinc-200 dark:bg-zinc-800/50 w-12 h-12 rounded-xl flex items-center justify-center border border-zinc-300 dark:border-zinc-700/50 dark:group-hover:scale-110 transition-transform duration-300">
+
+
                 {benefit.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-green-400 transition-colors">
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight dark:group-hover:text-green-400 transition-colors">
                 {benefit.title}
               </h3>
 
               {/* Paragraph Description */}
-              <p className="text-zinc-400 text-sm mt-2 font-light leading-relaxed line-clamp-4">
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2 font-light leading-relaxed line-clamp-4">
                 {benefit.description}
               </p>
             </motion.div>

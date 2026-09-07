@@ -18,10 +18,10 @@ export async function TrendingRow({ stat, baseUrl }) {
     }
 
     return (
-        <Table.Row className="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+        <Table.Row className="border-b border-zinc-200 dark:border-zinc-800/50 dark:hover:bg-zinc-900/50 transition-colors">
             
-            {/* Name Cell matches font-semibold and text-white */}
-            <Table.Cell className="font-semibold text-white py-4 max-w-xs">
+            {/* Name Cell matches font-semibold and text-zinc-900 dark:text-white */}
+            <Table.Cell className="font-semibold text-zinc-900 dark:text-white py-4 max-w-xs">
                 <span className="line-clamp-1 text-sm tracking-tight">
                     {actualLesson.title || actualLesson.name}
                 </span>
@@ -29,7 +29,7 @@ export async function TrendingRow({ stat, baseUrl }) {
             
             {/* Tone Cell matches your badge layout styling logic cleanly */}
             <Table.Cell className="py-4">
-                <span className="px-2 py-0.5 rounded text-xs bg-zinc-800 text-zinc-400 font-medium border border-zinc-700/30">
+                <span className="px-2 py-0.5 rounded text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-medium border border-zinc-300 dark:border-zinc-700/30">
                     {actualLesson.emotionalTone || "Insight"}
                 </span>
             </Table.Cell>

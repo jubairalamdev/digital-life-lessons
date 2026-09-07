@@ -31,10 +31,10 @@ export default function DashboardSidebar() {
 
   if(isPending){
     return (
-      <div className="w-full md:w-64 bg-zinc-950 border-b h-fit sticky top-24 md:top-28 mb-6 rounded-2xl md:border border-zinc-900 p-4">
+      <div className="w-full md:w-64 bg-white dark:bg-zinc-950 border-b h-fit sticky top-24 md:top-28 mb-6 rounded-2xl md:border border-zinc-100 dark:border-zinc-900 p-4">
         <div className="flex flex-col gap-3">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-10 bg-zinc-900 rounded-xl animate-pulse" />
+            <div key={i} className="h-10 bg-zinc-100 dark:bg-zinc-900 rounded-xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -58,19 +58,19 @@ export default function DashboardSidebar() {
   ];
 
   const toneColors = {
-    active: 'bg-zinc-900 text-white font-semibold',
-    inactive: 'bg-transparent text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/40'
+    active: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold',
+    inactive: 'bg-transparent text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900/40'
   };
 
   return (
-    <div className="w-full md:w-64 bg-zinc-950 border-b h-fit sticky top-24 md:top-28 mb-6 rounded-2xl md:border border-zinc-900 p-4 select-none">
+    <div className="w-full md:w-64 bg-white dark:bg-zinc-950 border-b h-fit sticky top-24 md:top-28 mb-6 rounded-2xl md:border border-zinc-100 dark:border-zinc-900 p-4 select-none">
       
       {/* 1. COMPACT MOBIL CONTROL PANEL BAR (Stays statically inline at the top of the page flow) */}
       <div className="flex items-center justify-between md:hidden w-full mb-2">
         <Button 
           light 
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-zinc-900 border border-zinc-800 text-zinc-200 font-medium text-sm flex items-center gap-2 px-3 h-10 rounded-xl"
+          className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 font-medium text-sm flex items-center gap-2 px-3 h-10 rounded-xl"
         >
           {isOpen ? <X size={18} /> : <Menu size={18} />}
           <span>Menu Sidebar</span>
@@ -90,7 +90,7 @@ export default function DashboardSidebar() {
                   pathname === item.route ? toneColors.active : toneColors.inactive
                 }`}
               >
-                <item.icon size={16} className={pathname === item.route ? 'text-green-400' : 'text-zinc-500'} />
+                <item.icon size={16} className={pathname === item.route ? 'text-green-400' : 'text-zinc-400 dark:text-zinc-500'} />
                 <span>{item.title}</span>
               </Button>
             </Link>
@@ -102,24 +102,24 @@ export default function DashboardSidebar() {
                   pathname === item.route ? toneColors.active : toneColors.inactive
                 }`}
               >
-                <item.icon size={16} className={pathname === item.route ? 'text-green-400' : 'text-zinc-500'} />
+                <item.icon size={16} className={pathname === item.route ? 'text-green-400' : 'text-zinc-400 dark:text-zinc-500'} />
                 <span>{item.title}</span>
               </Button>
             </Link> )) : null}
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-col gap-1.5 w-full pt-4 border-t border-zinc-900/60">
+        <div className="flex flex-col gap-1.5 w-full pt-4 border-t border-zinc-100 dark:border-zinc-900/60">
           <Button 
             light
-            className="w-full justify-start gap-3 h-10 px-3 rounded-xl bg-transparent text-zinc-400 hover:text-red-400 hover:bg-red-500/5 font-medium text-sm text-left transition-all"
+            className="w-full justify-start gap-3 h-10 px-3 rounded-xl bg-transparent text-zinc-500 dark:text-zinc-400 hover:text-red-400 hover:bg-red-500/5 font-medium text-sm text-left transition-all"
             onClick={async() => {
               await logOutUser();
               setIsOpen(false);
               redirect('/auth/login');
             }}
           >
-            <LogOut size={16} className="text-zinc-500" />
+            <LogOut size={16} className="text-zinc-400 dark:text-zinc-500" />
             <span>Log out</span>
           </Button>
         </div>

@@ -60,26 +60,26 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
     return (
         <div className="space-y-6 max-w-7xl mx-auto px-4 py-2">
             <div>
-                <h1 className="text-3xl font-black text-white tracking-tight">Manage Lessons</h1>
-                <p className="text-zinc-400 text-sm mt-1">Review, feature, and moderate all platform content.</p>
+                <h1 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tight">Manage Lessons</h1>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Review, feature, and moderate all platform content.</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border border-zinc-900 bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
+                <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
                     <div className="space-y-1">
-                        <span className="text-zinc-500 text-xs font-bold uppercase tracking-wider">Public Lessons</span>
-                        <h2 className="text-4xl font-black text-white">{publicCount}</h2>
+                        <span className="text-zinc-400 dark:text-zinc-500 text-xs font-bold uppercase tracking-wider">Public Lessons</span>
+                        <h2 className="text-4xl font-black text-zinc-900 dark:text-white">{publicCount}</h2>
                     </div>
                     <div className="bg-blue-500/10 text-blue-400 p-4 rounded-xl border border-blue-500/20">
                         <Eye size={24} />
                     </div>
                 </div>
 
-                <div className="border border-zinc-900 bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
+                <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-6 rounded-2xl flex items-center justify-between shadow-xl">
                     <div className="space-y-1">
-                        <span className="text-zinc-500 text-xs font-bold uppercase tracking-wider">Private Lessons</span>
-                        <h2 className="text-4xl font-black text-white">{privateCount}</h2>
+                        <span className="text-zinc-400 dark:text-zinc-500 text-xs font-bold uppercase tracking-wider">Private Lessons</span>
+                        <h2 className="text-4xl font-black text-zinc-900 dark:text-white">{privateCount}</h2>
                     </div>
                     <div className="bg-purple-500/10 text-purple-400 p-4 rounded-xl border border-purple-500/20">
                         <EyeOff size={24} />
@@ -96,15 +96,15 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                     selectedKey={filterVisibility}
                     onSelectionChange={(key) => setFilterVisibility(String(key))}
                 >
-                    <Label className="text-zinc-400 text-xs mb-1 block">Visibility</Label>
-                    <Select.Trigger className="bg-zinc-950 border border-zinc-800 text-white rounded-xl px-3 py-2 flex items-center justify-between w-full">
+                    <Label className="text-zinc-500 dark:text-zinc-400 text-xs mb-1 block">Visibility</Label>
+                    <Select.Trigger className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl px-3 py-2 flex items-center justify-between w-full">
                         <Select.Value />
                         <Select.Indicator />
                     </Select.Trigger>
-                    <Select.Popover className="bg-zinc-950 border border-zinc-800 rounded-xl text-white">
+                    <Select.Popover className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white">
                         <ListBox>
                             {["All", "Public", "Private"].map((vis) => (
-                                <ListBox.Item key={vis} id={vis} textValue={vis} className="hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
+                                <ListBox.Item key={vis} id={vis} textValue={vis} className="hover:bg-zinc-200 dark:hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
                                     {vis}
                                     <ListBox.ItemIndicator />
                                 </ListBox.Item>
@@ -120,19 +120,19 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                     selectedKey={filterCategory}
                     onSelectionChange={(key) => setFilterCategory(String(key))}
                 >
-                    <Label className="text-zinc-400 text-xs mb-1 block">Category</Label>
-                    <Select.Trigger className="bg-zinc-950 border border-zinc-800 text-white rounded-xl px-3 py-2 flex items-center justify-between w-full">
+                    <Label className="text-zinc-500 dark:text-zinc-400 text-xs mb-1 block">Category</Label>
+                    <Select.Trigger className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-xl px-3 py-2 flex items-center justify-between w-full">
                         <Select.Value />
                         <Select.Indicator />
                     </Select.Trigger>
-                    <Select.Popover className="bg-zinc-950 border border-zinc-800 rounded-xl text-white">
+                    <Select.Popover className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white">
                         <ListBox>
-                            <ListBox.Item id="All" textValue="All Categories" className="hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
+                            <ListBox.Item id="All" textValue="All Categories" className="hover:bg-zinc-200 dark:hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
                                 All Categories
                                 <ListBox.ItemIndicator />
                             </ListBox.Item>
                             {categories.map((cat) => (
-                                <ListBox.Item key={cat} id={cat} textValue={cat} className="hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
+                                <ListBox.Item key={cat} id={cat} textValue={cat} className="hover:bg-zinc-200 dark:hover:bg-zinc-900 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center">
                                     {cat}
                                     <ListBox.ItemIndicator />
                                 </ListBox.Item>
@@ -145,33 +145,33 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
             {/* Lessons List Layout */}
             <div className="space-y-3">
                 {filteredLessons.length === 0 ? (
-                    <div className="border border-zinc-900 bg-zinc-950 rounded-2xl p-10 text-center text-zinc-600">
+                    <div className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-2xl p-10 text-center text-zinc-400 dark:text-zinc-600">
                         No lessons match your current filters.
                     </div>
                 ) : (
                     filteredLessons.map((lesson) => (
-                        <div key={lesson._id} className="border border-zinc-900 bg-zinc-950 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm hover:border-zinc-800 transition-colors">
+                        <div key={lesson._id} className="border border-zinc-100 dark:border-zinc-900 bg-white dark:bg-zinc-950 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm hover:border-zinc-800 transition-colors">
                             
                             {/* Left Info */}
                             <div className="flex-1 min-w-0 flex items-start gap-4">
                                 {lesson.image ? (
-                                    <img src={lesson.image} className="w-14 h-14 rounded-lg object-cover border border-zinc-800 shrink-0 hidden sm:block" alt="" />
+                                    <img src={lesson.image} className="w-14 h-14 rounded-lg object-cover border border-zinc-200 dark:border-zinc-800 shrink-0 hidden sm:block" alt="" />
                                 ) : (
-                                    <div className="w-14 h-14 rounded-lg bg-zinc-900 border border-zinc-800 shrink-0 flex items-center justify-center hidden sm:block">
+                                    <div className="w-14 h-14 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shrink-0 flex items-center justify-center hidden sm:block">
                                         <BookOpen size={20} className="text-zinc-700" />
                                     </div>
                                 )}
                                 <div className="min-w-0">
-                                    <h3 className="text-white font-bold truncate text-sm">{lesson.title}</h3>
+                                    <h3 className="text-zinc-900 dark:text-white font-bold truncate text-sm">{lesson.title}</h3>
                                     <div className="flex items-center gap-3 mt-1.5 flex-wrap">
-                                        <span className="text-xs text-zinc-500">by {lesson.creatorName}</span>
-                                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-500">
+                                        <span className="text-xs text-zinc-400 dark:text-zinc-500">by {lesson.creatorName}</span>
+                                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500">
                                             {lesson.category || "Uncategorized"}
                                         </span>
                                         <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded border ${
                                             lesson.visibility === 'Public' 
                                             ? 'text-blue-400 border-blue-500/20 bg-blue-500/5' 
-                                            : 'text-zinc-500 border-zinc-800 bg-zinc-900'
+                                            : 'text-zinc-400 dark:text-zinc-500 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900'
                                         }`}>
                                             {lesson.visibility}
                                         </span>
@@ -189,7 +189,7 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                                     className={`rounded-lg text-xs font-semibold h-8 px-3 ${
                                         lesson.isReviewed 
                                         ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
-                                        : "bg-zinc-900 text-zinc-500 border border-zinc-800 hover:text-zinc-300"
+                                        : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800 hover:text-zinc-300"
                                     }`}
                                 >
                                     <CheckCircle size={14} />
@@ -204,7 +204,7 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                                     className={`rounded-lg text-xs font-semibold h-8 px-3 ${
                                         lesson.isFeatured 
                                         ? "bg-amber-500/10 text-amber-400 border border-amber-500/20" 
-                                        : "bg-zinc-900 text-zinc-500 border border-zinc-800 hover:text-zinc-300"
+                                        : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800 hover:text-zinc-300"
                                     }`}
                                 >
                                     <Star size={14} />
@@ -216,7 +216,7 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                                     isIconOnly
                                     size="sm"
                                     onClick={() => handleDeleteClick(lesson)}
-                                    className="bg-zinc-900 text-red-500/70 hover:text-red-400 border border-zinc-800 hover:border-red-500/30 h-8 w-8 rounded-lg"
+                                    className="bg-zinc-100 dark:bg-zinc-900 text-red-500/70 hover:text-red-400 border border-zinc-200 dark:border-zinc-800 hover:border-red-500/30 h-8 w-8 rounded-lg"
                                 >
                                     <Trash2 size={14} />
                                 </Button>
@@ -229,10 +229,10 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
             {/* HeroUI v3 Compound Delete Confirmation Modal */}
             {isModalOpen && (
                 <Modal native isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <Modal.Backdrop className="bg-black/70 backdrop-blur-sm">
+                    <Modal.Backdrop className="bg-white/70 dark:bg-black/70 backdrop-blur-sm">
                         <Modal.Container>
-                            <Modal.Dialog className="sm:max-w-[400px] bg-zinc-950 border border-zinc-800 text-white rounded-2xl p-6">
-                                <Modal.CloseTrigger className="absolute right-4 top-4 text-zinc-400 hover:text-white" onClick={() => setIsModalOpen(false)} />
+                            <Modal.Dialog className="sm:max-w-[400px] bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-2xl p-6">
+                                <Modal.CloseTrigger className="absolute right-4 top-4 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" onClick={() => setIsModalOpen(false)} />
                                 
                                 <Modal.Header className="flex gap-3 items-center">
                                     <Modal.Icon className="bg-red-500/10 text-red-400 p-2 rounded-lg border border-red-500/20">
@@ -242,17 +242,17 @@ export default function ManageLessonsContent({ initialLessons, publicCount, priv
                                 </Modal.Header>
                                 
                                 <Modal.Body className="mt-4">
-                                    <p className="text-zinc-400 text-sm">
-                                        Are you sure you want to permanently delete: <span className="text-white font-bold">&quot;{deleteTarget?.title}&ldquo;</span>?
+                                    <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+                                        Are you sure you want to permanently delete: <span className="text-zinc-900 dark:text-white font-bold">&quot;{deleteTarget?.title}&ldquo;</span>?
                                     </p>
-                                    <p className="text-zinc-600 text-xs mt-2">This action cannot be undone.</p>
+                                    <p className="text-zinc-400 dark:text-zinc-600 text-xs mt-2">This action cannot be undone.</p>
                                 </Modal.Body>
                                 
                                 <Modal.Footer className="mt-6 flex gap-3 justify-end">
                                     <Button 
                                         variant="flat" 
                                         onClick={() => setIsModalOpen(false)} 
-                                        className="bg-zinc-900 text-zinc-400 border border-zinc-800 rounded-xl px-4 py-2"
+                                        className="bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded-xl px-4 py-2"
                                     >
                                         Cancel
                                     </Button>

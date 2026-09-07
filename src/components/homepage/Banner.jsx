@@ -42,7 +42,7 @@ export default function HeroBanner() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full relative bg-zinc-950 overflow-hidden select-none">
+    <section className="w-full relative bg-white dark:bg-zinc-950 overflow-hidden select-none">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
@@ -63,13 +63,13 @@ export default function HeroBanner() {
         {BANNER_DATA.map((slide, index) => (
           <SwiperSlide key={slide.id}>
             <div
-              className="w-full h-full bg-cover bg-center relative flex items-center transition-transform duration-700 ease-out border border-b-gray-600"
+              className="w-full h-full bg-cover bg-center relative flex items-center transition-transform duration-700 ease-out dark:border dark:border-b-gray-600"
               style={{
                 backgroundImage: `url('${slide.image}')`,
               }}
             >
               {/* Overall dark tint overlay to unify the aesthetic */}
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+              <div className="absolute inset-0 dark:bg-black/40 dark:backdrop-blur-[2px]" />
 
               {/* Layout Container pinned to the right */}
               <div className="absolute inset-0 flex items-center justify-end z-10 px-6 sm:px-12 md:px-20 lg:px-32">
@@ -78,7 +78,7 @@ export default function HeroBanner() {
                   Dense black core (rgba 0,0,0,0.95) tapering out to transparent 
                   at the 75% mark to blend cleanly into the background photo.
                 */}
-                <div className="flex flex-col justify-center items-start text-left max-w-xl h-full w-full px-8 md:px-16 bg-black/70 border-gray-600 border-l md:-mr-35">
+                <div className="flex flex-col justify-center items-start text-left max-w-xl h-full w-full px-8 md:px-16 bg-white/70 dark:bg-black/70 border-gray-600 border-l md:-mr-35">
                   
                   <AnimatePresence mode="wait">
                     {activeIndex === index && (
@@ -104,7 +104,7 @@ export default function HeroBanner() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3, duration: 0.5 }}
-                          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none"
+                          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-none"
                         >
                           {slide.title}
                         </motion.h1>
@@ -114,7 +114,7 @@ export default function HeroBanner() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4, duration: 0.5 }}
-                          className="text-zinc-400 text-sm md:text-base lg:text-lg leading-relaxed font-light max-w-md"
+                          className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base lg:text-lg leading-relaxed font-light max-w-md"
                         >
                           {slide.description}
                         </motion.p>
@@ -129,7 +129,7 @@ export default function HeroBanner() {
                           <button className="px-6 py-3 text-sm font-medium text-black bg-white hover:bg-zinc-200 transition-colors rounded-xl font-semibold shadow-xl shadow-white/5">
                             Explore Lessons
                           </button>
-                          <button className="px-6 py-3 text-sm font-medium text-white bg-zinc-900/80 hover:bg-zinc-800 transition-colors rounded-xl font-semibold border border-zinc-800 backdrop-blur-md">
+                          <button className="px-6 py-3 text-sm font-medium text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-900/80 hover:bg-zinc-800 transition-colors rounded-xl font-semibold border border-zinc-200 dark:border-zinc-800 backdrop-blur-md">
                             Share Your Story
                           </button>
                         </motion.div>

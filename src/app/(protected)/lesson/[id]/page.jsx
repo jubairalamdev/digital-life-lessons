@@ -190,12 +190,12 @@ const LessonDetailsPage = async ({ params }) => {
 
                     {/* DYNAMIC PROTECTION INLINE WALL BLOCK */}
                     {dynamicLockGate && (
-                        <div className="absolute inset-0 z-20 bg-zinc-950/80 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center border border-zinc-800 rounded-3xl animate-in fade-in duration-300">
+                        <div className="absolute inset-0 z-20 bg-white dark:bg-zinc-950/80 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center border border-zinc-200 dark:border-zinc-800 rounded-3xl animate-in fade-in duration-300">
                             <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl mb-4 shadow-xl shadow-amber-500/5 text-amber-400 animate-pulse">
                                 <Sparkles size={24} />
                             </div>
-                            <h3 className="text-2xl font-black text-white tracking-tight">Premium Membership Required</h3>
-                            <p className="text-zinc-400 text-sm mt-2 max-w-sm font-light leading-relaxed">
+                            <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight">Premium Membership Required</h3>
+                            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2 max-w-sm font-light leading-relaxed">
                                 This file contains deeper industry post-mortems locked down to premium tier parameters.
                             </p>
                             <Link href="/pricing" className="mt-6">

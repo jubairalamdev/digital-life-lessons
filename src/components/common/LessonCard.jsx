@@ -19,15 +19,15 @@ export default function LessonCard({ lesson }) {
     Sad: 'text-purple-400 bg-purple-500/10 border-purple-500/20',
   };
 
-  const selectedToneStyle = toneColors[emotionalTone] || 'text-zinc-400 bg-zinc-500/10 border-zinc-500/20';
+  const selectedToneStyle = toneColors[emotionalTone] || 'text-zinc-500 dark:text-zinc-400 bg-zinc-500/10 border-zinc-500/20';
 
   return (
-    <div className="relative group bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 hover:border-zinc-700 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg h-[280px]">
+    <div className="relative group bg-zinc-100 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 dark:hover:border-zinc-700 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg h-[280px]">
       
       {/* Top Section: Badges & Title */}
       <div>
         <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-800 border border-zinc-700 text-zinc-300">
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300">
             {category}
           </span>
           <span className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${selectedToneStyle}`}>
@@ -40,18 +40,18 @@ export default function LessonCard({ lesson }) {
           )}
         </div>
 
-        <h3 className="text-lg font-bold text-white tracking-tight line-clamp-1 group-hover:text-green-400 transition-colors">
+        <h3 className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight line-clamp-1 dark:group-hover:text-green-400 transition-colors">
           {title}
         </h3>
         
-        <p className="text-zinc-400 text-sm mt-2 font-light leading-relaxed line-clamp-3">
+        <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2 font-light leading-relaxed line-clamp-3">
           {description}
         </p>
       </div>
 
       {/* Bottom Section: Stats & Action */}
-      <div className="mt-4 pt-4 border-t border-zinc-800/60 flex items-center justify-between">
-        <div className="text-xs font-medium text-zinc-500 flex items-center gap-1.5">
+      <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-800/60 flex items-center justify-between">
+        <div className="text-xs font-medium text-zinc-400 dark:text-zinc-500 flex items-center gap-1.5">
           <span className="text-red-500/80">❤️</span> {lesson.likes.length || 0} Likes
         </div>
 
