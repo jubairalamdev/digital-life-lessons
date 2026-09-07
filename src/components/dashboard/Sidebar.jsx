@@ -29,6 +29,18 @@ export default function DashboardSidebar() {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
+  if(isPending){
+    return (
+      <div className="w-full md:w-64 bg-zinc-950 border-b h-fit sticky top-24 md:top-28 mb-6 rounded-2xl md:border border-zinc-900 p-4">
+        <div className="flex flex-col gap-3">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="h-10 bg-zinc-900 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   const adminItems = [
     { title: 'Admin Dashboard', route: '/dashboard/admin', icon: LayoutGrid },
     { title: 'Manage Users', route: '/dashboard/admin/manage-users', icon: Users },
