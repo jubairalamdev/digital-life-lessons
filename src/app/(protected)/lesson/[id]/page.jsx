@@ -22,6 +22,7 @@ import CommentsSection from '@/components/lessonDetails/Comments';
 import FavoriteButton from '@/components/lessonDetails/FavoriteButton';
 import LikeButton from '@/components/lessonDetails/LikeButton';
 import ReportButton from '@/components/lessonDetails/ReportButton';
+import ShareButtons from '@/components/lessonDetails/ShareButtons';
 
 const LessonDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -183,6 +184,8 @@ const LessonDetailsPage = async ({ params }) => {
                                 <FavoriteButton lesson={lessonData} user={user}/>
 
                             </div>
+
+                            <ShareButtons lesson={lessonData} />
 
                             <ReportButton user={user} lesson={lessonData} />
                         </div>
