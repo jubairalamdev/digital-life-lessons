@@ -18,6 +18,7 @@ import {
     Sparkles
 } from 'lucide-react';
 import CommentForm from '@/components/lessonDetails/CommentForm';
+import ChatLessonContext from '@/components/lessonDetails/ChatLessonContext';
 import CommentsSection from '@/components/lessonDetails/Comments';
 import FavoriteButton from '@/components/lessonDetails/FavoriteButton';
 import LikeButton from '@/components/lessonDetails/LikeButton';
@@ -248,6 +249,7 @@ const LessonDetailsPage = async ({ params }) => {
                     <CommentsSection comments={comments} />
                 </div>
             </div>
+            <ChatLessonContext lesson={lessonData} />
         </main>
     );
 };

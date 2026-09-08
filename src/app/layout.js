@@ -4,6 +4,8 @@ dns.setServers(['8.8.8.8', '8.8.4.4'])
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { Bounce, Slide, ToastContainer } from "react-toastify";
+import ChatWidget from "@/components/common/ChatWidget";
+import { ChatProvider } from "@/lib/chat-context";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -42,7 +44,10 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {children}
+        <ChatProvider>
+          {children}
+          <ChatWidget />
+        </ChatProvider>
         <ToastContainer
           position="top-right"
           autoClose={3000}
