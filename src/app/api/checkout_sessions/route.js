@@ -16,7 +16,7 @@ export async function POST() {
     const origin = headersList.get('origin')
 
     // Create Checkout Sessions from body params.
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripe().checkout.sessions.create({
         customer_email: user.email,
       line_items: [
         {
