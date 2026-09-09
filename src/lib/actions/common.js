@@ -13,6 +13,7 @@ const RESOURCE_TAGS = {
 export const serverFetch = async (apiUrl, tags = []) => {
     try {
         const res = await fetch(apiUrl, {
+            cache: 'no-store',
             next: {
                 tags
             }
@@ -31,6 +32,7 @@ export const serverFetch = async (apiUrl, tags = []) => {
 export const serverFetchById = async (apiUrl, id, tags = []) => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000'}${apiUrl}/${id}`, {
+            cache: 'no-store',
             next: {
                 tags
             }
