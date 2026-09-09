@@ -39,8 +39,14 @@ export default function ChatWidget() {
     setInput("");
     setIsSending(true);
 
+    setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+    const patchLast = (prev, content) => [
+      ...prev.slice(0, -1),
+      { role: "assistant", content },
+    ];
+
     try {
-      const payload = { messages: updated };
+      const payload = { messages: updated, stream: true };
       if (lesson?.title) payload.lesson = { title: lesson.title };
 
       const res = await fetch(`${SERVER_URL}/api/ai/chat`, {
@@ -53,20 +59,89 @@ export default function ChatWidget() {
         let message = "Something went wrong. Please try again.";
         if (res.status === 429) message = "You're sending messages too fast. Please wait a moment.";
         if (res.status === 503) message = "The AI assistant isn't configured yet. Please try again later.";
-        setMessages((prev) => [...prev, { role: "assistant", content: message }]);
+        try {
+          const data = await res.json();
+          if (data?.error) message = data.error;
+        } catch {
+          // non-JSON error body, fall back to generic message
+        }
+        setMessages((prev) => patchLast(prev, message));
         return;
       }
 
-      const data = await res.json();
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: data.reply || "I couldn't find an answer. Try rephrasing." },
-      ]);
+      if (!res.body) throw new Error("empty response body");
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let streamed = "";
+      let errored = false;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data:")) continue;
+          const payload = trimmed.slice(5).trim();
+          if (!payload || payload === "[DONE]") continue;
+
+          let parsed;
+          try {
+            parsed = JSON.parse(payload);
+          } catch {
+            continue;
+          }
+
+          if (parsed.error) {
+            const message =
+              typeof parsed.error === "string" ? parsed.error : "The AI assistant ran into an issue. Please try again.";
+            setMessages((prev) => patchLast(prev, message));
+            errored = true;
+            break;
+          }
+
+          if (typeof parsed.delta === "string" && parsed.delta) {
+            streamed += parsed.delta;
+            setMessages((prev) => {
+              const current =
+                typeof prev[prev.length - 1]?.content === "string"
+                  ? prev[prev.length - 1].content
+                  : "";
+              return patchLast(prev, current + parsed.delta);
+            });
+          }
+        }
+
+        if (errored) {
+          try {
+            await reader.cancel();
+          } catch {
+            // already closed
+          }
+          break;
+        }
+      }
+
+      if (!errored && !streamed.trim()) {
+        setMessages((prev) =>
+          patchLast(prev, "I couldn't find an answer. Try rephrasing.")
+        );
+      }
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "Network error. Check your connection and try again." },
-      ]);
+      setMessages((prev) => {
+        const partial =
+          typeof prev[prev.length - 1]?.content === "string" ? prev[prev.length - 1].content : "";
+        return patchLast(
+          prev,
+          partial ? `${partial}\n\n*Connection lost.*` : "Network error. Check your connection and try again."
+        );
+      });
     } finally {
       setIsSending(false);
     }
@@ -103,7 +178,24 @@ export default function ChatWidget() {
                       : "bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-bl-md"
                   }`}
                 >
-                  {m.content}
+                  {m.content ? (
+                    m.content
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400">
+                      <Bot size={16} className="animate-pulse" />
+                      <span className="flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-current animate-bounce" />
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-current animate-bounce"
+                          style={{ animationDelay: "150ms" }}
+                        />
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-current animate-bounce"
+                          style={{ animationDelay: "300ms" }}
+                        />
+                      </span>
+                    </span>
+                  )}
                 </div>
               </div>
             ))}
@@ -122,14 +214,6 @@ export default function ChatWidget() {
               </div>
             )}
 
-            {isSending && (
-              <div className="flex justify-start">
-                <div className="px-3.5 py-2 rounded-2xl bg-zinc-200 dark:bg-zinc-800 flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 text-sm rounded-bl-md">
-                  <Bot size={16} className="animate-pulse" />
-                  <span className="animate-pulse">Thinking...</span>
-                </div>
-              </div>
-            )}
             <div ref={bottomRef} />
           </div>
 
